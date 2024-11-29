@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -128,10 +128,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BDOR.hpp" />
+    <ClInclude Include="Categorie.hpp" />
+    <ClInclude Include="Devise.hpp" />
+    <ClInclude Include="Excursion.hpp" />
+    <ClInclude Include="Hebergement.hpp" />
+    <ClInclude Include="Offre.hpp" />
+    <ClInclude Include="Vol.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BDOR.cpp" />
+    <ClCompile Include="Categorie.cpp" />
+    <ClCompile Include="Devise.cpp" />
+    <ClCompile Include="Excursion.cpp" />
+    <ClCompile Include="Hebergement.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Offre.cpp" />
+    <ClCompile Include="Vol.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
