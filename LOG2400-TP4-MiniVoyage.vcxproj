@@ -128,21 +128,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BDOR.hpp" />
+    <ClInclude Include="BDP.hpp" />
     <ClInclude Include="Categorie.hpp" />
     <ClInclude Include="Devise.hpp" />
     <ClInclude Include="Excursion.hpp" />
     <ClInclude Include="Hebergement.hpp" />
     <ClInclude Include="Offre.hpp" />
+    <ClInclude Include="OffreProxy.hpp" />
+    <ClInclude Include="Reservation.hpp" />
+    <ClInclude Include="ReservationComposite.hpp" />
+    <ClInclude Include="ReservationElementaire.hpp" />
     <ClInclude Include="Vol.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BDOR.cpp" />
+    <ClCompile Include="BDP.cpp" />
     <ClCompile Include="Categorie.cpp" />
     <ClCompile Include="Devise.cpp" />
     <ClCompile Include="Excursion.cpp" />
     <ClCompile Include="Hebergement.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Offre.cpp" />
+    <ClCompile Include="OffreProxy.cpp" />
+    <ClCompile Include="Reservation.cpp" />
+    <ClCompile Include="ReservationComposite.cpp" />
+    <ClCompile Include="ReservationElementaire.cpp" />
     <ClCompile Include="Vol.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

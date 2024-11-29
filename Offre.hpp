@@ -10,6 +10,7 @@ public:
 	Offre();
 	virtual void afficherDetails() const;
 	double calculerPrixTotal() const;
+	vector<string> obtenirDetails() const;
 	string obtenirCategorie() const;
 	string obtenirNom() const;
 	void reserver(string nom);
