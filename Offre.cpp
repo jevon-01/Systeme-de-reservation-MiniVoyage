@@ -18,7 +18,7 @@ Offre::Offre(const string& categorie, const string& nom, const double p, const D
 //}
 
 //TODO
-double Offre::calculerPrixTotal() const {
+const double Offre::calculerPrixTotal() const {
     return 0.0;
 }
 

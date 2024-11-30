@@ -113,3 +113,10 @@ const vector<shared_ptr<Offre>>& Categorie::obtenirOffres() const {
 const string& Categorie::obtenirNomCategorie() const {
 	return nom;
 }
+
+shared_ptr<Offre> Categorie::obtenirOffreSpecifique(const string& nom) const {
+	for (const auto& ptrOffre : offres) {
+		if (ptrOffre->obtenirNom() == nom)
+			return ptrOffre;
+	}
+}

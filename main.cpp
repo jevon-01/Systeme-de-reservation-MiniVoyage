@@ -9,6 +9,9 @@ int main() {
 
 
 	cout << "\n==============================" << endl;
+	shared_ptr<Offre> ptrOffre = bDOR.obtenirOffre("Hotel Stella", "Hebergement");
+
+	cout << ptrOffre->obtenirNom() << endl;
 	//bDOR.afficherOffres(); //affiche les noms de toutes les offres
 	
 	return 0;

@@ -20,7 +20,7 @@ public:
 	void changerCategorie(const string& nom);
 	const string& obtenirNomCategorie() const;
 	const vector<shared_ptr<Offre>>& obtenirOffres() const;
-	shared_ptr<Offre> obtenirOffreSpecifique(shared_ptr<Offre> offre) const;
+	shared_ptr<Offre> obtenirOffreSpecifique(const string& nom) const;
 	void supprimerOffre(shared_ptr<Offre> offre);
 private:
 	string nom;
