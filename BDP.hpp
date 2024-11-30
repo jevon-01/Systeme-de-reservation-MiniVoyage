@@ -4,13 +4,13 @@
 class BDP {
 public:
 	BDP();
+	~BDP() = default;
 	void afficherReservations();
+	void supprimerTousReservations();//presque meme chose que destructeur par default
 	void ajouterReservation(const shared_ptr<Reservation>& reservation);
 	void supprimerReservation(const string& nom);
-	void supprimerTousReservations();
 	vector<shared_ptr<Reservation>>& obtenirReservations();
 	
 private:
 	vector<shared_ptr<Reservation>> reservations;
-
 };
