@@ -42,7 +42,7 @@ string Vol::obtenirClasse() const {
     return classe;
 }
 
-bool Vol::obtenirWifi() const {
+string Vol::obtenirWifi() const {
     return wifi;
 }
 
@@ -58,6 +58,11 @@ vector<string> Vol::obtenirDetails() const {
         heureArrivee,
         nomAvion,
         classe,
-        (wifi ? "true" : "false")
+        wifi
     };
+}
+
+//TODO
+void Vol::reserver(const string& nom) {
+    
 }

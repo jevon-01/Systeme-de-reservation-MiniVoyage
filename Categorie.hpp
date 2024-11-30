@@ -9,10 +9,14 @@ using namespace std;
 class Categorie {
 public:
 	Categorie(const string& nom);
+	void definirVols();
+	void definirHebergement();
+	void definirExcursions();
+
 	void afficherCategorie() const;
 	void afficherOffres() const;
-	void ajouterOffre(Offre offre);
-	void changerCategorie(string nom);
+	void ajouterOffre(shared_ptr<Offre> offre);
+	void changerCategorie(const string& nom);
 	string obtenirNomCategorie() const;
 	vector<shared_ptr<Offre>> obtenirOffres() const;
 	shared_ptr<Offre> obtenirOffreSpecifique(shared_ptr<Offre> offre) const;

@@ -5,13 +5,14 @@ using namespace std;
 
 class Devise {
 public:
-	void changerDevise(string montant);
-	void changerTauxConversion(double taux);
-	void convertir(double, Devise);
+	Devise() {};
+	void changerDevise(const string& d);
+	void changerTauxConversion(const double taux);
+	//void convertir(const double, Devise);
 	string obtenirDevise() const;
-	double obtenirtauxConversion() const;
+	double obtenirTauxConversion() const;
 private:
-	string devise;
-	double tauxConvsersion;
+	string devise = "CAD";
+	double tauxConversion = 1.0;
 };
 

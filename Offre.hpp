@@ -7,17 +7,19 @@ using namespace std;
 
 class Offre {
 public:
-	Offre(const string& categorie, vector<string> details, const Devise dev, const string& nom, const double p);
+	Offre(const string& categorie, vector<string> details, const string& nom, const double p);
 	void afficherDetails() const;
 	double calculerPrixTotal() const;
 	virtual vector<string> obtenirDetails() const = 0;
 	string obtenirCategorie() const;
 	string obtenirNom() const;
-	virtual void reserver(string nom) = 0;
+	Devise obtenirDevise() const;
+	//void definirDevise();
+	virtual void reserver(const string& nom) = 0;
 protected:
 	string categorie;
 	vector<string> details;
-	Devise devise;
+	Devise devise = Devise();
 	string nom;
 	double prix;
 private:
