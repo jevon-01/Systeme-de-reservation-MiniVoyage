@@ -8,13 +8,13 @@ using namespace std;
 class Offre {
 public:
 	Offre(const string& categorie, const string& nom, const double p, const Devise& d = Devise());
+	virtual ~Offre() = default;
 	//void afficherDetails() const;
-	double calculerPrixTotal() const;
+	virtual const double calculerPrixTotal() const;
 	void changerDevise(const string& d);
 	void changerTauxConversion(const double taux);
-	~Offre() = default;
-	const string& obtenirCategorie() const;
-	const string& obtenirNom() const;
+	virtual const string& obtenirCategorie() const;
+	virtual const string& obtenirNom() const;
 	const Devise& obtenirDevise() const;
 	//virtual const vector<string>& obtenirDetails() const = 0;
 	virtual void reserver(const string& nom) = 0;

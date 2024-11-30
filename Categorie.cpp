@@ -109,3 +109,7 @@ void Categorie::afficherOffres() const {
 const vector<shared_ptr<Offre>>& Categorie::obtenirOffres() const {
 	return offres;
 }
+
+const string& Categorie::obtenirNomCategorie() const {
+	return nom;
+}

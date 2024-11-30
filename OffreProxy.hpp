@@ -4,12 +4,15 @@
 
 class OffreProxy : public Offre {
 public:
-	OffreProxy();
-	virtual void afficherDetails() const;
-	double calculerPrixTotal() const;
-	string obtenirCategorie() const;
-	vector<string> obtenirDetails() const;
-	string obtenirNom() const;
+	OffreProxy(shared_ptr<Offre> offre)
+		: Offre(offre->obtenirCategorie(), offre->obtenirNom(), offre->calculerPrixTotal(), offre->obtenirDevise()),
+		ptrOffre(offre) {}
+	~OffreProxy() override = default;
+	const double calculerPrixTotal() const override;
+	const string& obtenirCategorie() const override;
+	//const vector<string>& obtenirDetails() const;
+	const string& obtenirNom() const override;
+	void reserver(const string& nomClient) override;
 private:
 	shared_ptr<Offre> ptrOffre;
 };
