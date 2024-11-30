@@ -4,9 +4,9 @@
 
 class Vol : public Offre {
 public:
-	Vol(const string& categorie, const vector<string>& details, const string& nom, const double p, const string& transporteur, const string& noVol, const string& lieuDepart, const string& lieuArrivee, const string& jourDepart, const string& heureDepart, const string& jourArrivee, const string& heureArrivee, const string& nomAvion, const string& classe,
-	const string& wifi, const Devise& d) : Offre(categorie, details, nom, p, d), transporteur(transporteur), noVol(noVol), lieuDepart(lieuDepart), lieuArrivee(lieuArrivee), jourDepart(jourDepart), heureDepart(heureDepart), jourArrivee(jourArrivee), heureArrivee(heureArrivee), nomAvion(nomAvion), classe(classe), wifi(wifi) {};
-
+	Vol(const string& categorie, const string& nom, const double p, const string& transporteur, const string& noVol, const string& lieuDepart, const string& lieuArrivee, const string& jourDepart, const string& heureDepart, const string& jourArrivee, const string& heureArrivee, const string& nomAvion, const string& classe,
+	const string& wifi, const Devise& d) : Offre(categorie, nom, p, d), transporteur(transporteur), noVol(noVol), lieuDepart(lieuDepart), lieuArrivee(lieuArrivee), jourDepart(jourDepart), heureDepart(heureDepart), jourArrivee(jourArrivee), heureArrivee(heureArrivee), nomAvion(nomAvion), classe(classe), wifi(wifi) {};
+	~Vol() = default;
 	/*const vector<string>& obtenirDetails() const override;*/
 	const string& obtenirTransporteur() const;
 	const string& obtenirNumeroVol() const;

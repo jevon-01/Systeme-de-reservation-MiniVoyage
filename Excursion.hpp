@@ -6,8 +6,8 @@ using namespace std;
 
 class Excursion : public Offre {
 public:
-	Excursion(const string& categorie, const vector<string>& details, const string& nom, double p, const string& ville, const int nbEtoiles, const Devise& d = Devise()) : Offre(categorie, details, nom, p, d), ville(ville), nbEtoiles(nbEtoiles) {};
-	
+	Excursion(const string& categorie, const string& nom, double p, const string& ville, const int nbEtoiles, const Devise& d = Devise()) : Offre(categorie, nom, p, d), ville(ville), nbEtoiles(nbEtoiles) {};
+	~Excursion() = default;
 	const string& obtenirVille() const;
 	const int obtenirNbEtoiles() const;
 

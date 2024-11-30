@@ -2,7 +2,7 @@
 #include "Offre.hpp"
 #include "memory"
 
-class OffreProxy {
+class OffreProxy : public Offre {
 public:
 	OffreProxy();
 	virtual void afficherDetails() const;

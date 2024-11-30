@@ -37,7 +37,7 @@ void Categorie::definirVols() {
 			start = end + 1;
 		}
 		v.push_back(line.substr(start));
-		shared_ptr<Vol> vol = make_shared<Vol>("Transport", vector<string>{ "pas de details" }, v[0], stod(v[12]), v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10], v[11], v[13]);
+		shared_ptr<Vol> vol = make_shared<Vol>("Transport", v[0], stod(v[12]), v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10], v[11], v[13]);
 		ajouterOffre(vol);
 	}
 }
@@ -62,7 +62,7 @@ void Categorie::definirHebergement() {
 			start = end + 1;
 		}
 		v.push_back(line.substr(start));
-		shared_ptr<Hebergement> heb = make_shared<Hebergement>("Hebergement", vector<string>{ "pas de details" }, v[0], stod(v[4]), v[1], v[2], stod(v[3]), v[5]);
+		shared_ptr<Hebergement> heb = make_shared<Hebergement>("Hebergement", v[0], stod(v[4]), v[1], v[2], stod(v[3]), v[5]);
 		ajouterOffre(heb);
 	}
 }
@@ -87,7 +87,7 @@ void Categorie::definirExcursions() {
 			start = end + 1;
 		}
 		v.push_back(line.substr(start));
-		shared_ptr<Excursion> exc = make_shared<Excursion>("Excursion", vector<string>{ "pas de details" }, v[0], stod(v[3]), v[1], stoi(v[2]), v[4]);
+		shared_ptr<Excursion> exc = make_shared<Excursion>("Excursion", v[0], stod(v[3]), v[1], stoi(v[2]), v[4]);
 		ajouterOffre(exc);
 	}
 }

@@ -4,18 +4,18 @@
 using namespace std;
 
 
-Offre::Offre(const string& categorie, const vector<string>& details, const string& nom, const double p, const Devise& d) : categorie(categorie), details(details), nom(nom), prix(p), devise(d) {
+Offre::Offre(const string& categorie, const string& nom, const double p, const Devise& d) : categorie(categorie), nom(nom), prix(p), devise(d) {
     messageDeCreation();
 };
 
 
-void Offre::afficherDetails() const {
-    const vector<string>& listDetails = obtenirDetails();
-    for (const string& elem : listDetails) {
-        cout << elem << " hi";
-    }
-    cout << endl;
-}
+//void Offre::afficherDetails() const {
+//    const vector<string>& listDetails = obtenirDetails();
+//    for (const string& elem : listDetails) {
+//        cout << elem << " hi";
+//    }
+//    cout << endl;
+//}
 
 //TODO
 double Offre::calculerPrixTotal() const {
@@ -44,8 +44,4 @@ const string& Offre::obtenirNom() const {
 
 const Devise& Offre::obtenirDevise() const {
     return devise;
-}
-
-const vector<string>& Offre::obtenirDetails() const {
-    return details;
 }
