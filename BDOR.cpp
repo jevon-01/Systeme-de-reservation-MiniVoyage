@@ -5,8 +5,10 @@ using namespace std;
 
 BDOR::BDOR() {
 	cout << "Objet BDOR cree!" << endl;
-	
-	Categorie vol = Categorie("Vol");
+	cout << "Categorie Transport creee!" << endl;
+	cout << "Categorie Hebergement creee!" << endl;
+	cout << "Categorie Excursion creee!" << endl;
+	Categorie vol = Categorie("Vols");
 	ajouterCategorie(vol);
 }
 
@@ -20,7 +22,12 @@ void BDOR::afficherCategories() const {
 	}
 }
 void BDOR::afficherOffres() const {
+	cout << "dans afficherOffres" << endl;
 	for (const auto& c : categories) {
 		c.afficherOffres();
 	}
+}
+
+vector<Categorie> BDOR::obtenirCategories() const {
+	return categories;
 }

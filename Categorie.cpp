@@ -60,13 +60,17 @@ void Categorie::definirVols() {
 		bool wifi*/
 
 		//index 0 a 13
-		shared_ptr<Vol> vol = make_shared<Vol>("Vols", vector<string>{ "pas de details" }, v[0], stod(v[12]), v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10], v[11]);
+		shared_ptr<Vol> vol = make_shared<Vol>("Transport", vector<string>{ "pas de details" }, v[0], stod(v[12]), v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10], v[11]);
 		ajouterOffre(vol);
 	}
 }
 
 void Categorie::ajouterOffre(shared_ptr<Offre> offre) {
+	/*cout << "hihihi" << endl;
+	cout << "offre categorie : " << offre->obtenirCategorie() << endl;*/
 	offres.push_back(offre);
+	/*cout << "offres" << obtenirOffres().size();
+	cout << "offres.size() = " << offres.size() << endl;*/
 }
 
 void Categorie::definirHebergement() {
@@ -81,7 +85,11 @@ void Categorie::afficherCategorie() const {
 }
 
 void Categorie::afficherOffres() const {
-	for (auto offre : offres) {
+	for (const auto& offre : offres) {
 		offre->afficherDetails();
 	}
+}
+
+vector<shared_ptr<Offre>> Categorie::obtenirOffres() const {
+	return offres;
 }

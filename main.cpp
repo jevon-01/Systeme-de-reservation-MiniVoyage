@@ -4,11 +4,15 @@
 using namespace std;
 
 int main() {
-	cout << "Hello" << endl;
+	//cout << "Hello" << endl;
 	BDOR a;
+	//cout << "categories.size() = " << a.obtenirCategories().size() << endl;
+	
 	a.afficherOffres();
 	cout << "\n==============================" << endl;
-	Categorie c = Categorie("Vols");
+
+	//Categorie c = Categorie("Vols");
+
 	//c.afficherOffres();
 	//c.afficherCategorie();
 	return 0;
