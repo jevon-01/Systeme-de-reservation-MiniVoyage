@@ -7,9 +7,7 @@ public:
 	Vol(const string& categorie, vector<string> details, const Devise dev, const string& nom, const double p, const string& transporteur, const string& noVol, const string& lieuDepart, const string& lieuArrivee, const string& jourDepart, const string& heureDepart, const string& jourArrivee, const string& heureArrivee, const string& nomAvion, const string& classe,
 	bool wifi ) : Offre(categorie, details,dev, nom, p), transporteur(transporteur), noVol(noVol), lieuDepart(lieuDepart), lieuArrivee(lieuArrivee), jourDepart(jourDepart), heureDepart(heureDepart), jourArrivee(jourArrivee), heureArrivee(heureArrivee), nomAvion(nomAvion), classe(classe), wifi(wifi) {};
 
-	void afficherDetails() const override;
-
-	vector<string> obtenirDetails() const;
+	vector<string> obtenirDetails() const override;
 	string obtenirTransporteur() const;
 	string obtenirNumeroVol() const;
 	string obtenirLieuDepart() const;

@@ -93,4 +93,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\OneDrive - polymtl.ca\Desktop\Session 3\LOG2400\TP LOG2400\TP4\MV_offres_de_reservation_Excursions.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\..\OneDrive - polymtl.ca\Desktop\Session 3\LOG2400\TP LOG2400\TP4\MV_offres_de_reservation_Hebergement.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\..\OneDrive - polymtl.ca\Desktop\Session 3\LOG2400\TP LOG2400\TP4\MV_offres_de_reservation_Vols.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

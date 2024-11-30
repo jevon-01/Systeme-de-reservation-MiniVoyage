@@ -9,3 +9,9 @@ string Excursion::obtenirVille() const {
 int Excursion::obtenirNbEtoiles() const {
 	return nbEtoiles;
 }
+
+vector<string> Excursion::obtenirDetails() const {
+    return {
+        nom, ville, to_string(nbEtoiles)
+    };
+}

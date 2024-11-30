@@ -8,7 +8,7 @@ using namespace std;
 
 class Categorie {
 public:
-	Categorie();
+	Categorie(const string& nom);
 	void afficherCategorie() const;
 	void afficherOffres() const;
 	void ajouterOffre(Offre offre);

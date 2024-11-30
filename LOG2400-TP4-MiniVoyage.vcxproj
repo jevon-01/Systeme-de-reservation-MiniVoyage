@@ -155,6 +155,11 @@
     <ClCompile Include="ReservationElementaire.cpp" />
     <ClCompile Include="Vol.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\OneDrive - polymtl.ca\Desktop\Session 3\LOG2400\TP LOG2400\TP4\MV_offres_de_reservation_Excursions.csv" />
+    <None Include="..\..\..\OneDrive - polymtl.ca\Desktop\Session 3\LOG2400\TP LOG2400\TP4\MV_offres_de_reservation_Hebergement.csv" />
+    <None Include="..\..\..\OneDrive - polymtl.ca\Desktop\Session 3\LOG2400\TP LOG2400\TP4\MV_offres_de_reservation_Vols.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,5 +1,4 @@
 #include "Vol.hpp"
-#include "iostream"
 
 using namespace std;
 
@@ -61,8 +60,4 @@ vector<string> Vol::obtenirDetails() const {
         classe,
         (wifi ? "true" : "false")
     };
-}
-
-void Vol::afficherDetails() const {
-    
 }
