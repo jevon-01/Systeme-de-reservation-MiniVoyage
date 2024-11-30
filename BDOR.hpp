@@ -3,7 +3,6 @@
 #include "Offre.hpp"
 #include "string"
 #include "vector"
-#include "memory"
 
 using namespace std;
 
@@ -19,6 +18,6 @@ public:
 	vector<Offre> obtenirTousOffres() const;
 	void supprimerOffre(Offre offre, string nom);
 private:
-	vector<shared_ptr<Categorie>> categories;
+	vector<Categorie> categories;
 };
 
