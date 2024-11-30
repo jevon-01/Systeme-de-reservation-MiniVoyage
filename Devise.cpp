@@ -10,7 +10,7 @@ void Devise::changerTauxConversion(const double taux) {
 	tauxConversion = taux;
 }
 
-string Devise::obtenirDevise() const {
+const string& Devise::obtenirDevise() const {
 	return devise;
 }
 

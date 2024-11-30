@@ -9,7 +9,11 @@ BDOR::BDOR() {
 	cout << "Categorie Hebergement creee!" << endl;
 	cout << "Categorie Excursion creee!" << endl;
 	Categorie vol = Categorie("Vols");
+	Categorie hebergement = Categorie("Hebergement");
+	Categorie excursion = Categorie("Excursions");
 	ajouterCategorie(vol);
+	ajouterCategorie(hebergement);
+	ajouterCategorie(excursion);
 }
 
 void BDOR::ajouterCategorie(const Categorie& c) {
@@ -22,12 +26,11 @@ void BDOR::afficherCategories() const {
 	}
 }
 void BDOR::afficherOffres() const {
-	cout << "dans afficherOffres" << endl;
 	for (const auto& c : categories) {
 		c.afficherOffres();
 	}
 }
 
-vector<Categorie> BDOR::obtenirCategories() const {
+const vector<Categorie>& BDOR::obtenirCategories() const {
 	return categories;
 }

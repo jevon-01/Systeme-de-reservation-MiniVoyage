@@ -21,63 +21,79 @@ void Categorie::definirVols() {
 	string filePath = "MV_offres_de_reservation_Vols.csv";
 	ifstream file(filePath);
 
-	//si erreur
 	if (!file.is_open()) {
 		std::cerr << "Error: Could not open file " << filePath << std::endl;
 		return;
 	}
 
 	string line;
-	getline(file, line); //skip la 1ere row
+	getline(file, line);
 	while (getline(file, line)) {
 		size_t start = 0;
 		size_t end;
 		vector<string> v;
 		while ((end = line.find(',', start)) != std::string::npos) {
-			v.push_back(line.substr(start, end - start)); // Extract the field
-			start = end + 1; // Move to the next character after the comma
+			v.push_back(line.substr(start, end - start));
+			start = end + 1;
 		}
-		
-		/*for (const auto& e : v) {
-			cout << e << endl;
-		}*/
-
-		/*const string& categorie,
-		vector<string> details,
-				const Devise dev, removed
-		const string& nom,
-		const double prix,
-		const string& transporteur,
-		const string& noVol,
-		const string& lieuDepart,
-		const string& lieuArrivee,
-		const string& jourDepart,
-		const string& heureDepart,
-		const string& jourArrivee, 
-		const string& heureArrivee, 
-		const string& nomAvion, 
-		const string& classe,
-		bool wifi*/
-
-		//index 0 a 13
-		shared_ptr<Vol> vol = make_shared<Vol>("Transport", vector<string>{ "pas de details" }, v[0], stod(v[12]), v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10], v[11]);
+		v.push_back(line.substr(start));
+		shared_ptr<Vol> vol = make_shared<Vol>("Transport", vector<string>{ "pas de details" }, v[0], stod(v[12]), v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10], v[11], v[13]);
 		ajouterOffre(vol);
 	}
 }
 
-void Categorie::ajouterOffre(shared_ptr<Offre> offre) {
-	/*cout << "hihihi" << endl;
-	cout << "offre categorie : " << offre->obtenirCategorie() << endl;*/
-	offres.push_back(offre);
-	/*cout << "offres" << obtenirOffres().size();
-	cout << "offres.size() = " << offres.size() << endl;*/
-}
-
 void Categorie::definirHebergement() {
+	string filePath = "MV_offres_de_reservation_Hebergement.csv";
+	ifstream file(filePath);
 
+	if (!file.is_open()) {
+		std::cerr << "Error: Could not open file " << filePath << std::endl;
+		return;
+	}
+
+	string line;
+	getline(file, line);
+	while (getline(file, line)) {
+		size_t start = 0;
+		size_t end;
+		vector<string> v;
+		while ((end = line.find(',', start)) != std::string::npos) {
+			v.push_back(line.substr(start, end - start));
+			start = end + 1;
+		}
+		v.push_back(line.substr(start));
+		shared_ptr<Hebergement> heb = make_shared<Hebergement>("Hebergement", vector<string>{ "pas de details" }, v[0], stod(v[4]), v[1], v[2], stod(v[3]), v[5]);
+		ajouterOffre(heb);
+	}
 }
-void Categorie::definirExcursions() {
 
+void Categorie::definirExcursions() {
+	string filePath = "MV_offres_de_reservation_Excursions.csv";
+	ifstream file(filePath);
+
+	if (!file.is_open()) {
+		std::cerr << "Error: Could not open file " << filePath << std::endl;
+		return;
+	}
+
+	string line;
+	getline(file, line);
+	while (getline(file, line)) {
+		size_t start = 0;
+		size_t end;
+		vector<string> v;
+		while ((end = line.find(',', start)) != std::string::npos) {
+			v.push_back(line.substr(start, end - start));
+			start = end + 1;
+		}
+		v.push_back(line.substr(start));
+		shared_ptr<Excursion> exc = make_shared<Excursion>("Excursion", vector<string>{ "pas de details" }, v[0], stod(v[3]), v[1], stoi(v[2]), v[4]);
+		ajouterOffre(exc);
+	}
+}
+
+void Categorie::ajouterOffre(shared_ptr<Offre> offre) {
+	offres.push_back(offre);
 }
 
 void Categorie::afficherCategorie() const {
@@ -86,10 +102,10 @@ void Categorie::afficherCategorie() const {
 
 void Categorie::afficherOffres() const {
 	for (const auto& offre : offres) {
-		offre->afficherDetails();
+		cout << offre->obtenirNom() << endl;
 	}
 }
 
-vector<shared_ptr<Offre>> Categorie::obtenirOffres() const {
+const vector<shared_ptr<Offre>>& Categorie::obtenirOffres() const {
 	return offres;
 }

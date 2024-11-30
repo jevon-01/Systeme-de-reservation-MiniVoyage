@@ -2,16 +2,21 @@
 
 using namespace std;
 
-string Excursion::obtenirVille() const {
+const string& Excursion::obtenirVille() const {
 	return ville;
 }
 
-int Excursion::obtenirNbEtoiles() const {
+const int Excursion::obtenirNbEtoiles() const {
 	return nbEtoiles;
 }
 
-vector<string> Excursion::obtenirDetails() const {
-    return {
-        nom, ville, to_string(nbEtoiles)
-    };
+//const vector<string>& Excursion::obtenirDetails() const {
+//    return {
+//        nom, ville, to_string(nbEtoiles)
+//    };
+//}
+
+//TODO
+void Excursion::reserver(const string& nom) {
+
 }

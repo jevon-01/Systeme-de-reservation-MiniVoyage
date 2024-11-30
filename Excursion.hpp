@@ -6,11 +6,10 @@ using namespace std;
 
 class Excursion : public Offre {
 public:
-	Excursion(const string& categorie, vector<string> details, const string& nom, double p, const string& ville, int nbEtoiles) : Offre(categorie, details, nom, p), ville(ville), nbEtoiles(nbEtoiles) {};
+	Excursion(const string& categorie, const vector<string>& details, const string& nom, double p, const string& ville, const int nbEtoiles, const Devise& d = Devise()) : Offre(categorie, details, nom, p, d), ville(ville), nbEtoiles(nbEtoiles) {};
 	
-	vector<string> obtenirDetails() const override;
-	string obtenirVille() const;
-	int obtenirNbEtoiles() const;
+	const string& obtenirVille() const;
+	const int obtenirNbEtoiles() const;
 
 	void reserver(const string& nom) override;
 private:

@@ -9,6 +9,7 @@ using namespace std;
 class Categorie {
 public:
 	Categorie(const string& nom);
+	~Categorie() = default;
 	void definirVols();
 	void definirHebergement();
 	void definirExcursions();
@@ -18,7 +19,7 @@ public:
 	void ajouterOffre(shared_ptr<Offre> offre);
 	void changerCategorie(const string& nom);
 	string obtenirNomCategorie() const;
-	vector<shared_ptr<Offre>> obtenirOffres() const;
+	const vector<shared_ptr<Offre>>& obtenirOffres() const;
 	shared_ptr<Offre> obtenirOffreSpecifique(shared_ptr<Offre> offre) const;
 	void supprimerOffre(shared_ptr<Offre> offre);
 private:

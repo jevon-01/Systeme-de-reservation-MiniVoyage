@@ -4,15 +4,15 @@
 using namespace std;
 
 
-Offre::Offre(const string& categorie, vector<string> details, const string& nom, const double p) : categorie(categorie), details(details), nom(nom), prix(p) {
+Offre::Offre(const string& categorie, const vector<string>& details, const string& nom, const double p, const Devise& d) : categorie(categorie), details(details), nom(nom), prix(p), devise(d) {
     messageDeCreation();
 };
 
 
 void Offre::afficherDetails() const {
-    vector<string> listDetails = obtenirDetails();
+    const vector<string>& listDetails = obtenirDetails();
     for (const string& elem : listDetails) {
-        cout << elem << " ";
+        cout << elem << " hi";
     }
     cout << endl;
 }
@@ -26,14 +26,26 @@ void Offre::messageDeCreation() const {
 	cout << "Entree " << obtenirNom() << " rattachee a la categorie " << obtenirCategorie() << " creee!" << endl;
 }
 
-string Offre::obtenirCategorie() const {
+void Offre::changerDevise(const string& d) {
+    devise.Devise::changerDevise(d);
+}
+
+void Offre::changerTauxConversion(const double taux) {
+    devise.Devise::changerTauxConversion(taux);
+}
+
+const string& Offre::obtenirCategorie() const {
     return categorie;
 }
 
-string Offre::obtenirNom() const {
+const string& Offre::obtenirNom() const {
     return nom;
 }
 
-Devise Offre::obtenirDevise() const {
+const Devise& Offre::obtenirDevise() const {
     return devise;
+}
+
+const vector<string>& Offre::obtenirDetails() const {
+    return details;
 }
