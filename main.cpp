@@ -4,10 +4,12 @@
 using namespace std;
 
 int main() {
-	BDOR a;
+	BDOR bDOR;
+
+
 
 	cout << "\n==============================" << endl;
-	a.afficherOffres(); //affiche les noms de toutes les offres
+	//bDOR.afficherOffres(); //affiche les noms de toutes les offres
 	
 	return 0;
 }
