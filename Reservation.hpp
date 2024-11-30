@@ -10,14 +10,13 @@ public:
 	//maybe virtual
 	void afficher() const;
 	void afficherDate() const;
-	void afficherId() const;
 	void afficherNom() const;
 	void ajouterReservation(Reservation r); //might be shared_ptr<Reservation>
 	string obtenirDate() const;
+	string obtenirNom() const;
 	vector<string> obtenirDetails() const;
 	void supprimerReservation(Reservation r); //might be shared_ptr<Reservation>
 private:
-	int id;
 	string nom;
 	string date;
 	vector<string> details;
