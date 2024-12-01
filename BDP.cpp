@@ -5,7 +5,7 @@ BDP::BDP() {}
 
 void BDP::afficherReservations() {
 	for (const auto& r : reservations) {
-		r->afficher();
+		r->afficherInfo();
 	}
 }
 
