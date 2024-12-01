@@ -12,18 +12,18 @@ void creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
 	vector<pair<string, vector<pair<string, vector<string>>>>> segmentsEtJours = {
 	{"Segment France 1ère partie", {
 		{"2024-10-26", {"Air Canada AC 870 2024-10-26"}},
-		{"2024-10-27", {"Hôtel Stella"}},
-		{"2024-10-28", {"Paris Dîner-croisière sur la Seine by Bateaux Mouches", "Hôtel Stella"}}
+		{"2024-10-27", {"Hotel Stella"}},
+		{"2024-10-28", {"Paris Diner-croisiere sur la Seine by Bateaux Mouches", "Hotel Stella"}}
 	}},
 	{"Segment Portugal", {
-		{"2024-10-29", {"TAP Air Portugal TP 441 2024-10-29", "Hôtel Roma"}},
-		{"2024-10-30", {"Visite du Musée Calouste-Gulbenkian", "Hôtel Roma"}},
+		{"2024-10-29", {"TAP Air Portugal TP 441 2024-10-29", "Hotel Roma"}},
+		{"2024-10-30", {"Visite du Musee Calouste-Gulbenkian", "Hotel Roma"}},
 		{"2024-10-31", {"easyJet 4592 2024-10-31"}}
 	}},
 	{"Segment France 2e partie", {
-		{"2024-10-31", {"Hôtel Stella"}},
-		{"2024-11-01", {"Visite guidée pour voir les chefs-d'œuvre du musée du Louvre", "Hotel Stella"}},
-		{"2024-11-02", {"Visite guidée à Versailles et accès prioritaire avec transfert depuis l'hôtel au départ de Paris", "Hotel Stella"}},
+		{"2024-10-31", {"Hotel Stella"}},
+		{"2024-11-01", {"Visite guidee pour voir les chefs-d'œuvre du musee du Louvre", "Hotel Stella"}},
+		{"2024-11-02", {"Visite guidee a Versailles et acces prioritaire avec transfert depuis l'hotel au depart de Paris", "Hotel Stella"}},
 		{"2024-11-03", {"Air Transat 111 2024-11-03"}}
 	}}
 	};
@@ -47,8 +47,8 @@ void creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
 			cout << "Journee " << jourSeg->obtenirNom() << " creee dans le " << seg.first << "!\n";
 
 			for (const auto& reservation : jour.second) {
-				//shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation); //Fix les accents et enlever commentaire et effacer la ligne suivante. 
-				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre("Hotel Stella"); 
+				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation); //Fix les accents et enlever commentaire et effacer la ligne suivante. 
+				//shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre("Hotel Stella"); 
 				shared_ptr<ReservationElementaire> res = make_shared<ReservationElementaire>(ptrOffreReservation->obtenirNom(), jourSeg->obtenirNom(), "514", jourSeg->obtenirDate(), "2024", ptrOffreReservation);
 				jourSeg->ajouterReservation(res);
 				cout << "      ";
