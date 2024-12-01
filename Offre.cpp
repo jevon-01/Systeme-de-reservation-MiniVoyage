@@ -4,10 +4,12 @@
 using namespace std;
 
 
-Offre::Offre(const string& categorie, const string& nom, const double p, const Devise& d) : categorie(categorie), nom(nom), prix(p), devise(d) {
-    messageDeCreation();
-};
+Offre::Offre(const string& categorie, const string& nom, const double p, const Devise& d, bool nouvelleOffre) : categorie(categorie), nom(nom), prix(p), devise(d) {
+    if (nouvelleOffre) {
+        messageDeCreation();
+    }
 
+};
 
 //void Offre::afficherDetails() const {
 //    const vector<string>& listDetails = obtenirDetails();

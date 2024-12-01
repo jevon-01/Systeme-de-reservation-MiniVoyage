@@ -4,8 +4,8 @@
 
 class OffreProxy : public Offre {
 public:
-	OffreProxy(shared_ptr<Offre> offre)
-		: Offre(offre->obtenirCategorie(), offre->obtenirNom(), offre->calculerPrixTotal(), offre->obtenirDevise()),
+	OffreProxy(shared_ptr<Offre>& offre)
+		: Offre(offre->obtenirCategorie(), offre->obtenirNom(), offre->calculerPrixTotal(), offre->obtenirDevise(), false),
 		ptrOffre(offre) {}
 	~OffreProxy() override = default;
 	const double calculerPrixTotal() const override;
@@ -16,4 +16,3 @@ public:
 private:
 	shared_ptr<Offre> ptrOffre;
 };
-

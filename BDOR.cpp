@@ -33,10 +33,12 @@ const vector<Categorie>& BDOR::obtenirCategories() const {
 	return categories;
 }
 
-const shared_ptr<Offre>& BDOR::obtenirOffre(const string& nomOffre, const string& nomCategorie) const {
+const shared_ptr<Offre>& BDOR::obtenirOffre(const string& nomOffre) const {
 	for (const auto& c : categories) {
-		if (c.obtenirNomCategorie() == nomCategorie) {
-			return c.obtenirOffreSpecifique(nomOffre);
+		for (const auto& o : c.obtenirOffres()) {
+			if (o->obtenirNom() == nomOffre) {
+				return o;  
+			}
 		}
 	}
 }

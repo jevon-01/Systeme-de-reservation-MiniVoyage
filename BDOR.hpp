@@ -14,7 +14,7 @@ public:
 	void ajouterCategorie(const Categorie& c);
 	/*void ajouterOffre(const Offre& offre, const string& nomCategorie);*/
 	const vector<Categorie>& obtenirCategories() const;
-	const shared_ptr<Offre>& obtenirOffre(const string& nomOffre, const string& nomCategorie) const;
+	const shared_ptr<Offre>& obtenirOffre(const string& nomOffre) const;
 	const vector<shared_ptr<Offre>>& obtenirTousOffres() const;
 	/*void supprimerOffre(const Offre& offre, const string& nom);*/
 private:

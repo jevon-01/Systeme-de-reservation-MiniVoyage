@@ -14,7 +14,3 @@ const string& Reservation::obtenirNom() const {
 const string& Reservation::obtenirDate() const {
 	return date;
 }
-
-const vector<string>& Reservation::obtenirDetails() const {
-	return details;
-}

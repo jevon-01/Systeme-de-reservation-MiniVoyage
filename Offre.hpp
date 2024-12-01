@@ -2,12 +2,13 @@
 #include "Devise.hpp"
 #include "string"
 #include "vector"
+#include "iostream"
 
 using namespace std;
 
 class Offre {
 public:
-	Offre(const string& categorie, const string& nom, const double p, const Devise& d = Devise());
+	Offre(const string& categorie, const string& nom, const double p, const Devise& d = Devise(), bool nouvelleOffre = true);
 	virtual ~Offre() = default;
 	//void afficherDetails() const;
 	virtual const double calculerPrixTotal() const;
@@ -26,6 +27,7 @@ protected:
 	double prix;
 private:
 	void messageDeCreation() const;
+	
 };
 
 //ici on utilise le patron methode ou wtv, celui qui reutilise le squelette

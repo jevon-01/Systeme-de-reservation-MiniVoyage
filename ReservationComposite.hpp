@@ -1,5 +1,6 @@
 #pragma once
 #include "Reservation.hpp"
+#include "iostream"
 
 class ReservationComposite : public Reservation {
 public:
@@ -8,14 +9,13 @@ public:
 	/*void afficherDate() const;
 	void afficherId() const;
 	void afficherNom() const;*/
-
-	void ajouterReservation(Reservation r);
-	const string& obtenirDate() const;
-	const vector<string>& obtenirDetails() const;
+	//const string& obtenirDate() const;
+	ReservationComposite(const string& nom, const string& date) : Reservation(nom, date) {}
+	virtual ~ReservationComposite() = default;
 
 	void ajouterReservation(shared_ptr<Reservation> r) override;
-	virtual void supprimerReservation(shared_ptr<Reservation> r) override;
+	void supprimerReservation(shared_ptr<Reservation> r) override;
+	void afficherTout() const;
 private:
 	vector<shared_ptr<Reservation>> reservations;
 };
-
