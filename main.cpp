@@ -41,14 +41,14 @@ void creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
 
 		for (const auto& jour : seg.second) {
 
-			shared_ptr<ReservationComposite> jourSeg = make_shared<ReservationComposite>("2024-10-26", "2024-10-26");
+			shared_ptr<ReservationComposite> jourSeg = make_shared<ReservationComposite>(jour.first, jour.first);
 			segment->ajouterReservation(jourSeg);
 			cout << "    ";
 			cout << "Journee " << jourSeg->obtenirNom() << " creee dans le " << seg.first << "!\n";
 
 			for (const auto& reservation : jour.second) {
-
-				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation);
+				//shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation); //Fix les accents et enlever commentaire et effacer la ligne suivante. 
+				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre("Hotel Stella"); 
 				shared_ptr<ReservationElementaire> res = make_shared<ReservationElementaire>(ptrOffreReservation->obtenirNom(), jourSeg->obtenirNom(), "514", jourSeg->obtenirDate(), "2024", ptrOffreReservation);
 				jourSeg->ajouterReservation(res);
 				cout << "      ";
