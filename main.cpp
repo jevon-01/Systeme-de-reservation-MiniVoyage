@@ -122,12 +122,12 @@ int main() {
 
 	//Création voyage Alicia
 	shared_ptr<ReservationComposite> voyageAlicia = make_shared<ReservationComposite>("Voyage d'Alicia", * voyageDiego);
-	cout << voyageAlicia->obtenirNom() << " copie a partir du " << voyageDiego->obtenirNom() << "!\n";
+	cout << voyageAlicia->obtenirNom() << " copie a partir du " << voyageDiego->obtenirNom() << "!\n\n";
 	bDP.ajouterReservation(voyageAlicia);
 
 	//Affichage des frais totaux de chaque voyage
-	for (const auto& a : bDP.obtenirReservations()) {
-		cout << "Total des frais pour le " << a->obtenirNom()<<" ($ CA): " << (int) a->calculerPrixTotal() << "\n"; 
+	for (const auto& voyage : bDP.obtenirReservations()) {
+		cout << "Total des frais pour le " << voyage->obtenirNom()<<" ($ CA): " << (int)voyage->calculerPrixTotal() << "\n";
 	}
 
 	return 0;
