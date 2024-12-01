@@ -47,8 +47,7 @@ shared_ptr<ReservationComposite> creationVoyageDora(const BDOR& bDOR, BDP& bDP) 
 			cout << "Journee " << jourSeg->obtenirNom() << " creee dans le " << seg.first << "!\n";
 
 			for (const auto& reservation : jour.second) {
-				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation); //Fix les accents et enlever commentaire et effacer la ligne suivante. 
-				//shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre("Hotel Stella"); 
+				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation); 
 				shared_ptr<ReservationElementaire> res = make_shared<ReservationElementaire>(ptrOffreReservation->obtenirNom(), jourSeg->obtenirNom(), "514", jourSeg->obtenirDate(), "2024", ptrOffreReservation);
 				jourSeg->ajouterReservation(res);
 				cout << "      ";
@@ -130,6 +129,10 @@ int main() {
 		cout << "Total des frais pour le " << voyage->obtenirNom()<<" ($ CA): " << (int)voyage->calculerPrixTotal() << "\n";
 	}
 
+
+
+	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
+	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();
+
 	return 0;
 }
-

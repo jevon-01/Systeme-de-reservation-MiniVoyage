@@ -4,21 +4,7 @@
 
 class ReservationElementaire : public Reservation {
 public:
-	//override maybe
 
-	//inherited methods
-	/*
-	void afficher() const;
-	void afficherDate() const;
-	void afficherId() const;
-	void afficherNom() const;
-	void ajouterReservation(Reservation r);
-	string obtenirDate() const;
-	vector<string> obtenirDetails() const;
-	void supprimerReservation(Reservation r);
-	*/
-
-	//new
 	ReservationElementaire(const string& nom, const string& date, const string& contact, const string& dateAchat, const string& nomVendeur, shared_ptr<Offre>& ptrOffre) : Reservation(nom, date), contactVendeur(contact), dateAchat(dateAchat), nomVendeur(nomVendeur), offre(OffreProxy(ptrOffre)) {}
 	virtual ~ReservationElementaire() = default;
 	const string& obtenirContactVendeur() const;

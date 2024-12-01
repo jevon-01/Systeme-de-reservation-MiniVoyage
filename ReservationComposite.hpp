@@ -5,11 +5,6 @@
 class ReservationComposite : public Reservation {
 public:
 
-	//void afficher() const;
-	/*void afficherDate() const;
-	void afficherId() const;
-	void afficherNom() const;*/
-	//const string& obtenirDate() const;
 	ReservationComposite(const string& nom, const string& date) : Reservation(nom, date) {}
 	ReservationComposite(const string& nom, const ReservationComposite& other);
 	virtual ~ReservationComposite() = default;

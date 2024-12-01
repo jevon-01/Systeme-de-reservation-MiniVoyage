@@ -12,6 +12,11 @@ BDOR::BDOR() {
 		Categorie c = Categorie(type);
 		ajouterCategorie(c);
 	}
+	for (const auto& c : categories) {
+		for (const auto& o : c.obtenirOffres()) {
+			offres.push_back(o);
+		}
+	}
 }
 
 void BDOR::ajouterCategorie(const Categorie& c) {
@@ -41,4 +46,8 @@ const shared_ptr<Offre>& BDOR::obtenirOffre(const string& nomOffre) const {
 			}
 		}
 	}
+}
+
+const vector<shared_ptr<Offre>>& BDOR::obtenirTousOffres() const {
+	return offres;
 }

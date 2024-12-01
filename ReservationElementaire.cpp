@@ -1,4 +1,5 @@
 #include "ReservationElementaire.hpp"
+#include "Devise.hpp"
 
 const string& ReservationElementaire::obtenirContactVendeur() const {
 	return contactVendeur;

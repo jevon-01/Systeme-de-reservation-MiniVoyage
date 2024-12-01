@@ -13,14 +13,3 @@ const string& Hebergement::obtenirSecteur() const {
 double Hebergement::obtenirCote() const {
 	return cote;
 }
-
-//const vector<string>& Hebergement::obtenirDetails() const {
-//    return {
-//        nom, ville, secteur, to_string(cote)
-//    };
-//}
-
-//TODO
-void Hebergement::reserver(const string& nom) {
-
-}

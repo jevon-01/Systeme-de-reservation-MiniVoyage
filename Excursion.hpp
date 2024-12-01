@@ -11,7 +11,6 @@ public:
 	const string& obtenirVille() const;
 	const int obtenirNbEtoiles() const;
 
-	void reserver(const string& nom) override;
 private:
 	string ville;
 	int nbEtoiles;

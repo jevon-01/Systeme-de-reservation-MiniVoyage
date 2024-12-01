@@ -10,9 +10,8 @@ public:
 	~OffreProxy() override = default;
 	const double calculerPrixTotal() override;
 	const string& obtenirCategorie() const override;
-	//const vector<string>& obtenirDetails() const;
 	const string& obtenirNom() const override;
-	void reserver(const string& nomClient) override;
+
 private:
 	shared_ptr<Offre> ptrOffre;
 };

@@ -18,7 +18,7 @@ double Devise::obtenirTauxConversion() const {
 	return tauxConversion;
 }
 
-const double Devise::convertir(double& prix, const string& d) {
+const double Devise::convertir(double& prix, const string& d) const{
 	if (d == "EURO") {
 		return prix / 1.5;
 	}

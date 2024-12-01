@@ -12,7 +12,7 @@ Offre::Offre(const string& categorie, const string& nom, const double p, const D
 const double Offre::calculerPrixTotal() {
 
     if (devise.obtenirDevise() == "EURO") {
-        prix = devise.convertir(prix, "CAD");
+        return devise.convertir(prix, "CAD");
     }
 
     return prix;
@@ -40,4 +40,8 @@ const string& Offre::obtenirNom() const {
 
 const Devise& Offre::obtenirDevise() const {
     return devise;
+}
+
+const double& Offre::obtenirPrix() const {
+    return prix;
 }

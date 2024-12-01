@@ -6,7 +6,7 @@ public:
 	BDP();
 	~BDP() = default;
 	void afficherReservations();
-	void supprimerTousReservations();//presque meme chose que destructeur par default
+	void supprimerTousReservations();
 	void ajouterReservation(const shared_ptr<Reservation>& reservation);
 	void supprimerReservation(const string& nom);
 	vector<shared_ptr<Reservation>>& obtenirReservations();

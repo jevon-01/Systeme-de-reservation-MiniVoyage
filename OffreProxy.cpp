@@ -11,7 +11,3 @@ const string& OffreProxy::obtenirCategorie() const {
 const string& OffreProxy::obtenirNom() const {
 	return ptrOffre->obtenirNom();
 }
-
-void OffreProxy::reserver(const string& nom) {
-	ptrOffre->reserver(nom);
-}
