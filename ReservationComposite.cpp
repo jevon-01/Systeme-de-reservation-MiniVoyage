@@ -1,6 +1,5 @@
 #include "ReservationComposite.hpp"
 
-//TODO
 void ReservationComposite::ajouterReservation(shared_ptr<Reservation> r) {
 	reservations.push_back(r);
 }
@@ -38,4 +37,21 @@ void ReservationComposite::afficherTout() const {
 			reserv->afficherInfo();
 		}
 	}
+}
+
+const double ReservationComposite::calculerPrixTotal() {
+	
+	double prixTotal = 0.0;
+
+	for (const auto& reserv : reservations) {
+
+		if (auto composite = dynamic_cast<ReservationComposite*>(reserv.get())) {
+			prixTotal += composite->calculerPrixTotal();
+		}
+		else {
+			prixTotal += reserv->calculerPrixTotal();
+		}
+	}
+
+	return prixTotal;
 }

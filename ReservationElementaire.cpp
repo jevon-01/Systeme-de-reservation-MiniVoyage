@@ -15,6 +15,10 @@ const OffreProxy& ReservationElementaire::obtenirOffre() const {
 	return offre;
 }
 
+const double ReservationElementaire::calculerPrixTotal() {
+	return offre.calculerPrixTotal();
+}
+
 //TODO
 void  ReservationElementaire::ajouterReservation(shared_ptr<Reservation> r) {
 

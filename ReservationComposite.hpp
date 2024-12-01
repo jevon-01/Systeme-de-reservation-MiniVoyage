@@ -17,7 +17,7 @@ public:
 	void ajouterReservation(shared_ptr<Reservation> r) override;
 	void supprimerReservation(shared_ptr<Reservation> r) override;
 	void afficherTout() const;
-	//double calculerPrix() override;
+	const double calculerPrixTotal() override;
 private:
 	vector<shared_ptr<Reservation>> reservations;
 

@@ -56,9 +56,9 @@ shared_ptr<ReservationComposite> creationVoyageDora(const BDOR& bDOR, BDP& bDP) 
 			}
 
 		}
-		cout << "\n";
-
+		
 	}
+	cout << "\n";
 	return groupe;
 }
 
@@ -100,10 +100,9 @@ void creationVoyageDiego(const shared_ptr<ReservationComposite> voyageDiego, con
 			}
 
 		}
-		cout << "\n";
 
 	}
-
+	cout << "\n";
 }
 
 int main() {
@@ -128,10 +127,14 @@ int main() {
 
 	creationVoyageDiego(voyageDiego, voyageDora, bDOR, bDP);
 
-	//Création voyage 
+	//Création voyage Alicia
 	shared_ptr<ReservationComposite> voyageAlicia = make_shared<ReservationComposite>("Voyage d'Alicia", * voyageDiego);
 	cout << voyageAlicia->obtenirNom() << " copie a partir du " << voyageDiego->obtenirNom() << "!\n";
+	bDP.ajouterReservation(voyageAlicia);
 
+	for (const auto& a : bDP.obtenirReservations()) {
+		cout << "Total des frais pour le " << a->obtenirNom()<<" ($ CA): " << a->calculerPrixTotal() << "\n"; 
+	}
 
 	//bDOR.afficherOffres(); //affiche les noms de toutes les offres
 	

@@ -27,6 +27,7 @@ public:
 	const OffreProxy& obtenirOffre() const;
 	void ajouterReservation(shared_ptr<Reservation> r) override;
 	void supprimerReservation(shared_ptr<Reservation> r) override;
+	const double calculerPrixTotal() override;
 private:
 	string contactVendeur; // email
 	string dateAchat;

@@ -3,25 +3,14 @@
 
 using namespace std;
 
-
 Offre::Offre(const string& categorie, const string& nom, const double p, const Devise& d, bool nouvelleOffre) : categorie(categorie), nom(nom), prix(p), devise(d) {
     if (nouvelleOffre) {
         messageDeCreation();
     }
-
 };
 
-//void Offre::afficherDetails() const {
-//    const vector<string>& listDetails = obtenirDetails();
-//    for (const string& elem : listDetails) {
-//        cout << elem << " hi";
-//    }
-//    cout << endl;
-//}
-
-//TODO
 const double Offre::calculerPrixTotal() const {
-    return 0.0;
+    return prix;
 }
 
 void Offre::messageDeCreation() const {
