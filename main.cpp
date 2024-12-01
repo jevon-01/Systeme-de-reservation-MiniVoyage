@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
+shared_ptr<ReservationComposite> creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
 	vector<pair<string, vector<pair<string, vector<string>>>>> segmentsEtJours = {
 	{"Segment France 1ère partie", {
 		{"2024-10-26", {"Air Canada AC 870 2024-10-26"}},
@@ -56,8 +56,54 @@ void creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
 			}
 
 		}
+		cout << "\n";
 
 	}
+	return groupe;
+}
+
+void creationVoyageDiego(const shared_ptr<ReservationComposite> voyageDiego, const shared_ptr<ReservationComposite> voyageDora, const BDOR& bDOR, BDP& bDP) {
+	vector<pair<string, vector<pair<string, vector<string>>>>> segmentsEtJours = {
+	{"Segment Espagne", {
+		{"2024-10-29", {"Air Europa 1026", "Far Home Atocha"}},
+		{"2024-10-30", {"Excursion d'une journee a Tolede (de Madrid)", "Far Home Atocha"}},
+		{"2024-10-31", {"Air Europa 1025"}}
+	}}
+	};
+
+	cout << voyageDiego->obtenirNom() << " copie a partir du " << voyageDora->obtenirNom() << "!\n";
+	shared_ptr<ReservationComposite> segment = make_shared<ReservationComposite>("Segment Portugal", "2024");
+	voyageDiego->supprimerReservation(segment);
+	cout << "  " << segment->obtenirNom() << " efface!\n";
+	bDP.ajouterReservation(voyageDiego);
+
+	for (const auto& seg : segmentsEtJours) {
+
+		shared_ptr<ReservationComposite> segment = make_shared<ReservationComposite>(seg.first, "2024");
+		cout << "  ";
+		cout << segment->obtenirNom() << " cree dans le " << voyageDiego->obtenirNom() << "!\n";
+		voyageDiego->ajouterReservation(segment);
+
+		for (const auto& jour : seg.second) {
+
+			shared_ptr<ReservationComposite> jourSeg = make_shared<ReservationComposite>(jour.first, jour.first);
+			segment->ajouterReservation(jourSeg);
+			cout << "    ";
+			cout << "Journee " << jourSeg->obtenirNom() << " creee dans le " << seg.first << "!\n";
+
+			for (const auto& reservation : jour.second) {
+				shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre(reservation);
+				shared_ptr<ReservationElementaire> res = make_shared<ReservationElementaire>(ptrOffreReservation->obtenirNom(), jourSeg->obtenirNom(), "514", jourSeg->obtenirDate(), "2024", ptrOffreReservation);
+				jourSeg->ajouterReservation(res);
+				cout << "      ";
+				cout << "Reservation creee : " << voyageDiego->obtenirNom() << "/" << jourSeg->obtenirDate() << "/" << ptrOffreReservation->obtenirNom() << "!\n";
+			}
+
+		}
+		cout << "\n";
+
+	}
+
 }
 
 int main() {
@@ -75,7 +121,17 @@ int main() {
 
 
 	//Création voyage Dora
-	creationVoyageDora(bDOR,bDP);
+	shared_ptr<ReservationComposite> voyageDora = creationVoyageDora(bDOR,bDP);
+
+	//Création voyage Diego
+	shared_ptr<ReservationComposite> voyageDiego = make_shared<ReservationComposite>("Voyage de Diego", * voyageDora);
+
+	creationVoyageDiego(voyageDiego, voyageDora, bDOR, bDP);
+
+	//Création voyage 
+	shared_ptr<ReservationComposite> voyageAlicia = make_shared<ReservationComposite>("Voyage d'Alicia", * voyageDiego);
+	cout << voyageAlicia->obtenirNom() << " copie a partir du " << voyageDiego->obtenirNom() << "!\n";
+
 
 	//bDOR.afficherOffres(); //affiche les noms de toutes les offres
 	
