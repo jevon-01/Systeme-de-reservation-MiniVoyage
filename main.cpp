@@ -111,13 +111,6 @@ int main() {
 	BDP bDP;
 
 	cout << "\n==============================" << endl;
-	//test
-	shared_ptr<Offre> ptrOffre = bDOR.obtenirOffre("Hotel Stella");
-	cout << ptrOffre->obtenirNom() << " " 
-		 << ptrOffre->obtenirCategorie() << endl;
-
-	//Creer reservation avec le ptrOffre
-
 
 	//Création voyage Dora
 	shared_ptr<ReservationComposite> voyageDora = creationVoyageDora(bDOR,bDP);
@@ -132,12 +125,11 @@ int main() {
 	cout << voyageAlicia->obtenirNom() << " copie a partir du " << voyageDiego->obtenirNom() << "!\n";
 	bDP.ajouterReservation(voyageAlicia);
 
+	//Affichage des frais totaux de chaque voyage
 	for (const auto& a : bDP.obtenirReservations()) {
 		cout << "Total des frais pour le " << a->obtenirNom()<<" ($ CA): " << (int) a->calculerPrixTotal() << "\n"; 
 	}
 
-	//bDOR.afficherOffres(); //affiche les noms de toutes les offres
-	
 	return 0;
 }
 
