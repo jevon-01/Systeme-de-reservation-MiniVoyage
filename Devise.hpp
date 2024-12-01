@@ -8,7 +8,7 @@ public:
 	Devise(const string& d = "CAD", const double t = 1.00) : devise(d), tauxConversion(t) {}
 	void changerDevise(const string& d);
 	void changerTauxConversion(const double taux);
-	//void convertir(const double, Devise);
+	const double convertir(double& prix, const string& d);
 	const string& obtenirDevise() const;
 	double obtenirTauxConversion() const;
 private:

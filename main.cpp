@@ -133,7 +133,7 @@ int main() {
 	bDP.ajouterReservation(voyageAlicia);
 
 	for (const auto& a : bDP.obtenirReservations()) {
-		cout << "Total des frais pour le " << a->obtenirNom()<<" ($ CA): " << a->calculerPrixTotal() << "\n"; 
+		cout << "Total des frais pour le " << a->obtenirNom()<<" ($ CA): " << (int) a->calculerPrixTotal() << "\n"; 
 	}
 
 	//bDOR.afficherOffres(); //affiche les noms de toutes les offres

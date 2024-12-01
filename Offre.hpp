@@ -11,7 +11,7 @@ public:
 	Offre(const string& categorie, const string& nom, const double p, const Devise& d = Devise(), bool nouvelleOffre = true);
 	virtual ~Offre() = default;
 	//void afficherDetails() const;
-	virtual const double calculerPrixTotal() const;
+	virtual const double calculerPrixTotal();
 	void changerDevise(const string& d);
 	void changerTauxConversion(const double taux);
 	virtual const string& obtenirCategorie() const;

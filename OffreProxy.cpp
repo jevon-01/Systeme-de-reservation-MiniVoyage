@@ -1,6 +1,6 @@
 #include "OffreProxy.hpp"
 
-const double OffreProxy::calculerPrixTotal() const {
+const double OffreProxy::calculerPrixTotal()  {
 	return ptrOffre->calculerPrixTotal();
 }
 
