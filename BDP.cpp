@@ -9,6 +9,12 @@ void BDP::afficherReservations() {
 	}
 }
 
+void BDP::ajouterReservation(const string& nom, const string& date, const vector<string>& details) {
+	/*const auto& r = make_shared<Reservation>(nom, date, details);
+	reservations.push_back(r);*/
+}
+
+
 void BDP::ajouterReservation(const shared_ptr<Reservation>& reservation) {
 	reservations.push_back(reservation);
 }
