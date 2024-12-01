@@ -4,10 +4,11 @@
 #include "Reservation.hpp"
 #include "ReservationComposite.hpp"
 #include "ReservationElementaire.hpp"
+#include "BDP.hpp"
 
 using namespace std;
 
-void creationVoyageDora(const BDOR& bDOR) {
+void creationVoyageDora(const BDOR& bDOR, BDP& bDP) {
 	vector<pair<string, vector<pair<string, vector<string>>>>> segmentsEtJours = {
 	{"Segment France 1ère partie", {
 		{"2024-10-26", {"Air Canada AC 870 2024-10-26"}},
@@ -27,15 +28,16 @@ void creationVoyageDora(const BDOR& bDOR) {
 	}}
 	};
 
-	ReservationComposite groupe("Voyage de Dora", "2024");
-	cout << groupe.obtenirNom() << " cree!\n";
+	shared_ptr<ReservationComposite> groupe = make_shared<ReservationComposite>("Voyage de Dora", "2024");
+	cout << groupe->obtenirNom() << " cree!\n";
+	bDP.ajouterReservation(groupe);
 
 	for (const auto& seg : segmentsEtJours) {
 
 		shared_ptr<ReservationComposite> segment = make_shared<ReservationComposite>(seg.first, "2024");
 		cout << "  ";
-		cout << segment->obtenirNom() << " cree dans le " << groupe.obtenirNom() << "!\n";
-		groupe.ajouterReservation(segment);
+		cout << segment->obtenirNom() << " cree dans le " << groupe->obtenirNom() << "!\n";
+		groupe->ajouterReservation(segment);
 
 		for (const auto& jour : seg.second) {
 
@@ -50,7 +52,7 @@ void creationVoyageDora(const BDOR& bDOR) {
 				shared_ptr<ReservationElementaire> res = make_shared<ReservationElementaire>(ptrOffreReservation->obtenirNom(), jourSeg->obtenirNom(), "514", jourSeg->obtenirDate(), "2024", ptrOffreReservation);
 				jourSeg->ajouterReservation(res);
 				cout << "      ";
-				cout << "Reservation creee : " << groupe.obtenirNom() << "/" << jourSeg->obtenirDate() << "/" << ptrOffreReservation->obtenirNom() << "!\n";
+				cout << "Reservation creee : " << groupe->obtenirNom() << "/" << jourSeg->obtenirDate() << "/" << ptrOffreReservation->obtenirNom() << "!\n";
 			}
 
 		}
@@ -61,6 +63,7 @@ void creationVoyageDora(const BDOR& bDOR) {
 int main() {
 
 	BDOR bDOR;
+	BDP bDP;
 
 	cout << "\n==============================" << endl;
 	//test
@@ -72,7 +75,7 @@ int main() {
 
 
 	//Création voyage Dora
-	creationVoyageDora(bDOR);
+	creationVoyageDora(bDOR,bDP);
 
 	//bDOR.afficherOffres(); //affiche les noms de toutes les offres
 	
