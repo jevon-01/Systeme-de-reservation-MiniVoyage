@@ -19,12 +19,3 @@ const OffreProxy& ReservationElementaire::obtenirOffre() const {
 const double ReservationElementaire::calculerPrixTotal() {
 	return offre.calculerPrixTotal();
 }
-
-//TODO
-void  ReservationElementaire::ajouterReservation(shared_ptr<Reservation> r) {
-
-}
-
-void  ReservationElementaire::supprimerReservation(shared_ptr<Reservation> r) {
-
-}

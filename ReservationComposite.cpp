@@ -28,9 +28,7 @@ ReservationComposite::ReservationComposite(const string& nom, const ReservationC
 
 void ReservationComposite::afficherTout() const {
 	for (const auto& reserv : reservations) {
-	
 		if (auto composite = dynamic_cast<const ReservationComposite*>(reserv.get())) {
-		
 			composite->afficherTout();
 		}
 		else {
@@ -40,11 +38,8 @@ void ReservationComposite::afficherTout() const {
 }
 
 const double ReservationComposite::calculerPrixTotal() {
-	
 	double prixTotal = 0.0;
-
 	for (const auto& reserv : reservations) {
-
 		if (auto composite = dynamic_cast<ReservationComposite*>(reserv.get())) {
 			prixTotal += composite->calculerPrixTotal();
 		}
@@ -52,6 +47,5 @@ const double ReservationComposite::calculerPrixTotal() {
 			prixTotal += reserv->calculerPrixTotal();
 		}
 	}
-
 	return prixTotal;
 }

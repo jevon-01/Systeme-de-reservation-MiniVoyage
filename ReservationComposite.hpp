@@ -4,7 +4,6 @@
 
 class ReservationComposite : public Reservation {
 public:
-
 	ReservationComposite(const string& nom, const string& date) : Reservation(nom, date) {}
 	ReservationComposite(const string& nom, const ReservationComposite& other);
 	virtual ~ReservationComposite() = default;

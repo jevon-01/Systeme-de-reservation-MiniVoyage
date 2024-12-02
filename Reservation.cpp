@@ -14,3 +14,10 @@ const string& Reservation::obtenirNom() const {
 const string& Reservation::obtenirDate() const {
 	return date;
 }
+
+void Reservation::ajouterReservation(shared_ptr<Reservation> r) {
+	return;
+}
+void Reservation::supprimerReservation(shared_ptr<Reservation> r) {
+	return;
+}
