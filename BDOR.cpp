@@ -28,6 +28,7 @@ void BDOR::afficherCategories() const {
 		c.afficherCategorie();
 	}
 }
+
 void BDOR::afficherOffres() const {
 	for (const auto& c : categories) {
 		c.afficherOffres();

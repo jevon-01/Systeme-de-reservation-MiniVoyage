@@ -25,7 +25,4 @@ protected:
 	double prix;
 private:
 	void messageDeCreation() const;
-	
 };
-
-//ici on utilise le patron methode ou wtv, celui qui reutilise le squelette
