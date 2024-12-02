@@ -4,6 +4,9 @@
 #include "Reservation.hpp"
 #include "ReservationComposite.hpp"
 #include "ReservationElementaire.hpp"
+#include "ReservationDecorateur.hpp"
+#include "AjoutReservationDecorateur.hpp"
+#include "CommentaireReservationDecorateur.hpp"
 #include "BDP.hpp"
 
 using namespace std;
@@ -52,6 +55,7 @@ shared_ptr<ReservationComposite> creationVoyageDora(const BDOR& bDOR, BDP& bDP) 
 				jourSeg->ajouterReservation(res);
 				cout << "      ";
 				cout << "Reservation creee : " << groupe->obtenirNom() << "/" << jourSeg->obtenirDate() << "/" << ptrOffreReservation->obtenirNom() << "!\n";
+
 			}
 
 		}
@@ -129,6 +133,34 @@ int main() {
 		cout << "Total des frais pour le " << voyage->obtenirNom()<<" ($ CA): " << (int)voyage->calculerPrixTotal() << "\n";
 	}
 
+	cout << "\n--- Debut de la sortie du TP5\n" << endl;
+
+	shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre("Hotel Stella");
+
+	// Créer et associer first pair
+	shared_ptr<Reservation> main = voyageDora->obtenirReservationSpecifique("Hotel Stella", "2024-10-27");
+	shared_ptr<ReservationElementaire> sous = make_shared<ReservationElementaire>("Restaurant de l'hotel Stella pour le 27 octobre 2024 a 19h.", "2024-10-27", "514", "2024-10-27", "Hotel Stella", ptrOffreReservation);
+	shared_ptr<AjoutReservationDecorateur> decorateurAjout = make_shared<AjoutReservationDecorateur>(main, sous);
+	voyageDora->remplacerReservation("Hotel Stella", "2024-10-27", decorateurAjout);
+	
+	// Créer et associer second pair
+	shared_ptr<Reservation> mainSecond = voyageDora->obtenirReservationSpecifique("Hotel Stella", "2024-10-31");
+	shared_ptr<ReservationElementaire> sousSecond = make_shared<ReservationElementaire>("Restaurant de l'hotel Stella pour le 31 octobre 2024 a 19h.", "2024-10-31", "514", "2024-10-31", "Hotel Stella", ptrOffreReservation);
+	shared_ptr<AjoutReservationDecorateur> decorateurAjoutSecond = make_shared<AjoutReservationDecorateur>(mainSecond, sousSecond);
+	voyageDora->remplacerReservation("Hotel Stella", "2024-10-31", decorateurAjoutSecond);
+	
+
+	// Créer et associer third pair
+	shared_ptr<Reservation> mainThird = voyageDora->obtenirReservationSpecifique("Hotel Stella", "2024-10-31");
+	shared_ptr<CommentaireReservationDecorateur> decorateurCommentaire = make_shared<CommentaireReservationDecorateur>(mainSecond, "Excellent service!.");
+	voyageDora->remplacerReservation("Hotel Stella", "2024-10-31", decorateurCommentaire);
+
+	
+	
+
+	decorateurAjoutSecond->annulerReservation();
+
+	voyageDora->afficherTout();
 
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();

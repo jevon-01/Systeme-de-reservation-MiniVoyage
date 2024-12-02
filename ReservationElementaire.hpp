@@ -11,10 +11,10 @@ public:
 	const string& obtenirNomVendeur() const;
 	const OffreProxy& obtenirOffre() const;
 	const double calculerPrixTotal() override;
+
 private:
 	string contactVendeur;
 	string dateAchat;
 	string nomVendeur;
 	OffreProxy offre;
 };
-

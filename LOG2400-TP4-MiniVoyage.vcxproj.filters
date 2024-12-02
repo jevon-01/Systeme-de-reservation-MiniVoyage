@@ -92,6 +92,24 @@
     <ClCompile Include="ReservationComposite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ReservationDecorateur.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReservationDecorateur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AjoutReservationDecorateur.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommentaireReservationDecorateur.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommentaireReservationDecorateur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AjoutReservationDecorateur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MV_offres_de_reservation_Excursions.csv">

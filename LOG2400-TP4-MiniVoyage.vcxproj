@@ -141,9 +141,13 @@
     <ClInclude Include="Vol.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AjoutReservationDecorateur.cpp" />
+    <ClCompile Include="AjoutReservationDecorateur.hpp" />
     <ClCompile Include="BDOR.cpp" />
     <ClCompile Include="BDP.cpp" />
     <ClCompile Include="Categorie.cpp" />
+    <ClCompile Include="CommentaireReservationDecorateur.cpp" />
+    <ClCompile Include="CommentaireReservationDecorateur.hpp" />
     <ClCompile Include="Devise.cpp" />
     <ClCompile Include="Excursion.cpp" />
     <ClCompile Include="Hebergement.cpp" />
@@ -152,6 +156,8 @@
     <ClCompile Include="OffreProxy.cpp" />
     <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="ReservationComposite.cpp" />
+    <ClCompile Include="ReservationDecorateur.cpp" />
+    <ClCompile Include="ReservationDecorateur.hpp" />
     <ClCompile Include="ReservationElementaire.cpp" />
     <ClCompile Include="Vol.cpp" />
   </ItemGroup>

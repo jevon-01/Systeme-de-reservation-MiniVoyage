@@ -1,4 +1,6 @@
 #include "ReservationComposite.hpp"
+#include "CommentaireReservationDecorateur.hpp"
+#include "AjoutReservationDecorateur.hpp"
 
 void ReservationComposite::ajouterReservation(shared_ptr<Reservation> r) {
 	reservations.push_back(r);
@@ -31,6 +33,12 @@ void ReservationComposite::afficherTout() const {
 		if (auto composite = dynamic_cast<const ReservationComposite*>(reserv.get())) {
 			composite->afficherTout();
 		}
+		else if (auto dec = dynamic_cast<CommentaireReservationDecorateur*>(reserv.get())) {
+			dec->afficherInfo();
+		}
+		else if (auto dec = dynamic_cast<AjoutReservationDecorateur*>(reserv.get())) {
+			dec->afficherInfo();
+		}
 		else {
 			reserv->afficherInfo();
 		}
@@ -48,4 +56,42 @@ const double ReservationComposite::calculerPrixTotal() {
 		}
 	}
 	return prixTotal;
+}
+
+shared_ptr<Reservation> ReservationComposite::obtenirReservationSpecifique(const string& r, const string& date) {
+	for (const auto& reserv : reservations) {
+		
+		if (auto composite = dynamic_cast<ReservationComposite*>(reserv.get())) {
+	
+			auto result = composite->obtenirReservationSpecifique(r, date);
+			if (result) {
+				return result; 
+			}
+		}
+
+		if (reserv->obtenirNom() == r && reserv->obtenirDate() == date) {
+			return reserv;
+		}
+	}
+	return nullptr;
+}
+
+shared_ptr<Reservation> ReservationComposite::remplacerReservation(const string& r, const string& date, shared_ptr<Reservation> res) {
+	for (auto& reserv : reservations) {
+
+		if (auto composite = dynamic_cast<ReservationComposite*>(reserv.get())) {
+
+			auto result = composite->remplacerReservation(r, date, res);
+			if (result) {
+				return result; 
+			}
+		}
+
+		if (reserv->obtenirNom() == r && reserv->obtenirDate() == date) {
+			reserv = res; 
+			return reserv; 
+		}
+	}
+	
+	return nullptr;
 }
