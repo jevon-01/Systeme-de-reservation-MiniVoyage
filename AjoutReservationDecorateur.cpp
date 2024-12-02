@@ -10,5 +10,8 @@ void AjoutReservationDecorateur::afficherInfo() {
 	if (sousReservation) {
 		cout << "  " << sousReservation->obtenirNom() << endl;
 	}
+}
 
+const string& AjoutReservationDecorateur::obtenirNomSousReservation() {
+	return sousReservation->obtenirNom();
 }

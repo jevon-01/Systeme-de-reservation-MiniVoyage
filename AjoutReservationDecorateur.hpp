@@ -8,6 +8,7 @@ public:
     virtual ~AjoutReservationDecorateur() = default;
     void annulerReservation();
     void afficherInfo();
+    const string& obtenirNomSousReservation();
 private:
     shared_ptr<Reservation> sousReservation;
 };

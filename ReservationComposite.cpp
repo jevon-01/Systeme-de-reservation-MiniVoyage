@@ -70,9 +70,11 @@ shared_ptr<Reservation> ReservationComposite::obtenirReservationSpecifique(const
 		}
 
 		if (reserv->obtenirNom() == r && reserv->obtenirDate() == date) {
+			
 			return reserv;
 		}
 	}
+	
 	return nullptr;
 }
 
@@ -94,4 +96,43 @@ shared_ptr<Reservation> ReservationComposite::remplacerReservation(const string&
 	}
 	
 	return nullptr;
+}
+
+void ReservationComposite::afficherVoyage(int indentLevel) const {
+	
+
+	string indent(indentLevel * 2, ' ');
+	if (obtenirDate() == obtenirNom()) {
+		cout << indent << "Journee " << obtenirNom() << ":\n";
+	}
+	else {
+		string nom = obtenirNom();
+		if (nom.find("Segment")) {
+			cout << indent << obtenirNom() << ":\n";
+		}
+
+	}
+	
+
+	for (const auto& s : reservations) {
+		if (auto composite = dynamic_cast<const ReservationComposite*>(s.get())) {
+			
+			composite->afficherVoyage(indentLevel + 1);
+		}
+		else if (auto commentaire = dynamic_cast<CommentaireReservationDecorateur*>(s.get())) {
+	
+			cout << indent << "  " << "Reservation " << commentaire->obtenirNom() << ", prix total ($ CA): " << commentaire->calculerPrixTotal() << ".\n";
+
+			cout << indent << indent << "  " << "Commentaire: " << commentaire->obtenirCommentaire() << endl;
+		}
+		else if (auto ajout = dynamic_cast<AjoutReservationDecorateur*>(s.get())) {
+	
+			cout << indent << "  " << "Reservation " << ajout->obtenirNom() << ", prix total ($ CA): " << ajout->calculerPrixTotal() << ".\n";
+
+			cout << indent << indent << "Reservation " << ajout->obtenirNomSousReservation() << endl;
+		}
+		else {
+			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << s->calculerPrixTotal() << ".\n";
+		}
+	}
 }
