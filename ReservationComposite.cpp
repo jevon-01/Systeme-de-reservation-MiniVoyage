@@ -99,7 +99,6 @@ shared_ptr<Reservation> ReservationComposite::remplacerReservation(const string&
 }
 
 void ReservationComposite::afficherVoyage(int indentLevel) const {
-	
 
 	string indent(indentLevel * 2, ' ');
 	if (obtenirDate() == obtenirNom()) {
@@ -109,11 +108,10 @@ void ReservationComposite::afficherVoyage(int indentLevel) const {
 		string nom = obtenirNom();
 		if (nom.find("Segment")) {
 			cout << indent << obtenirNom() << ":\n";
+			indentLevel = indentLevel - 1;
 		}
-
 	}
 	
-
 	for (const auto& s : reservations) {
 		if (auto composite = dynamic_cast<const ReservationComposite*>(s.get())) {
 			

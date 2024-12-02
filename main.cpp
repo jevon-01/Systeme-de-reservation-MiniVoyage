@@ -140,9 +140,7 @@ int main() {
 	shared_ptr<ReservationElementaire> sous = make_shared<ReservationElementaire>("Restaurant de l'hotel Stella pour le 27 octobre 2024 a 19h.", "2024-10-27", "514", "2024-10-27", "Hotel Stella", ptrOffreReservation);
 	shared_ptr<AjoutReservationDecorateur> decorateurAjout = make_shared<AjoutReservationDecorateur>(main, sous);
 	voyageDora->remplacerReservation("Hotel Stella", "2024-10-27", decorateurAjout);
-	
-	
-	
+
 	// Créer et associer second pair
 	shared_ptr<Reservation> mainSecond = voyageDora->obtenirReservationSpecifique("Hotel Stella", "2024-10-31");
 	shared_ptr<ReservationElementaire> sousSecond = make_shared<ReservationElementaire>("Restaurant de l'hotel Stella pour le 31 octobre 2024 a 19h.", "2024-10-31", "514", "2024-10-31", "Hotel Stella", ptrOffreReservation);
@@ -158,7 +156,6 @@ int main() {
 	decorateurAjoutSecond->annulerReservation();
 	
 	voyageDora->afficherVoyage(0);
-
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
 	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();
