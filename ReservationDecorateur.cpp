@@ -3,3 +3,4 @@
 const double ReservationDecorateur::calculerPrixTotal() {
     return reservationBase->calculerPrixTotal();
 }
+ 

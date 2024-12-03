@@ -130,6 +130,7 @@ int main() {
 	bDP.ajouterReservation(voyageAlicia);
 
 	//Affichage des frais totaux de chaque voyage
+	
 	for (const auto& voyage : bDP.obtenirReservations()) {
 		cout << "Total des frais pour le " << voyage->obtenirNom()<<" ($ CA): " << (int)voyage->calculerPrixTotal() << "\n";
 	}
@@ -183,8 +184,6 @@ int main() {
 	cout << endl;
 
 	voyageAlicia->afficherVoyage(0, empty);
-	
-
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
 	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();

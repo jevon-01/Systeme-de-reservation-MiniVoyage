@@ -1,6 +1,7 @@
 #include "ReservationComposite.hpp"
 #include "CommentaireReservationDecorateur.hpp"
 #include "AjoutReservationDecorateur.hpp"
+#include "OffreDecorateur.hpp"
 #include "fstream"
 #include "filesystem"
 
@@ -136,10 +137,15 @@ void ReservationComposite::afficherVoyage(int indentLevel, string& journeePrec) 
 
 			cout << indent << indent << "  " << "Reservation " << ajout->obtenirNomSousReservation() << endl;
 		}
-		else {
+		else if (auto elem = dynamic_cast<ReservationElementaire*>(s.get())) {
 			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << s->calculerPrixTotal() << ".\n";
+			
+			auto offreProxy = elem->obtenirOffre();
 
-			//if()
+			if (auto offreDec = dynamic_cast<OffreDecorateur*>(offreProxy.obtenirOffre().get())) {
+				cout << indent << indent << "  " << offreDec->obtenirCommentaire() << endl;
+
+			}
 		}
 	}
 }

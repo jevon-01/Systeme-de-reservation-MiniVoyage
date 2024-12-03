@@ -11,3 +11,6 @@ const string& OffreProxy::obtenirCategorie() const {
 const string& OffreProxy::obtenirNom() const {
 	return ptrOffre->obtenirNom();
 }
+shared_ptr<Offre>& OffreProxy::obtenirOffre() {
+	return ptrOffre;
+}

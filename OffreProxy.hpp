@@ -11,6 +11,7 @@ public:
 	const double calculerPrixTotal() override;
 	const string& obtenirCategorie() const override;
 	const string& obtenirNom() const override;
+	shared_ptr<Offre>& obtenirOffre();
 
 private:
 	shared_ptr<Offre> ptrOffre;
