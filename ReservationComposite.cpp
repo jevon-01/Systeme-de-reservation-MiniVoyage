@@ -139,12 +139,11 @@ void ReservationComposite::afficherVoyage(int indentLevel, string& journeePrec) 
 		}
 		else if (auto elem = dynamic_cast<ReservationElementaire*>(s.get())) {
 			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << s->calculerPrixTotal() << ".\n";
-			
+		
 			auto offreProxy = elem->obtenirOffre();
-
 			if (auto offreDec = dynamic_cast<OffreDecorateur*>(offreProxy.obtenirOffre().get())) {
 				cout << indent << indent << "  " << offreDec->obtenirCommentaire() << endl;
-
+				
 			}
 		}
 	}

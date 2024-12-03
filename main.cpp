@@ -163,7 +163,8 @@ int main() {
 	shared_ptr<OffreDecorateur> offreDec = 
 		make_shared<OffreDecorateur>(bDOR.obtenirOffre(nomOffre), commentaire, "Excursion", nomOffre, bDOR.obtenirOffre(nomOffre)->obtenirPrix());
 	bDOR.remplacerOffre(nomOffre, offreDec);
-
+	
+	//bDOR.obtenirOffre(nomOffre)->da();
 	string empty = "";
 
 	//journalisation 

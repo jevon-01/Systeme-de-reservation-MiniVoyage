@@ -60,7 +60,6 @@ shared_ptr<Offre> BDOR::remplacerOffre(const string& offreNom, shared_ptr<Offre>
 		for (auto& offre : categorie.obtenirOffresNonConst()) {
 			
 			if (offre->obtenirNom() == offreNom) {
-				
 				offre = nouvelOffre; 
 				return offre; 
 			}
