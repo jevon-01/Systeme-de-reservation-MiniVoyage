@@ -45,3 +45,7 @@ const Devise& Offre::obtenirDevise() const {
 const double& Offre::obtenirPrix() const {
     return prix;
 }
+
+void Offre::changerPrix(double newPrix) {
+    prix = newPrix;
+}

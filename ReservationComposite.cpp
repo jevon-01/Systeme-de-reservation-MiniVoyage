@@ -1,6 +1,10 @@
 #include "ReservationComposite.hpp"
 #include "CommentaireReservationDecorateur.hpp"
 #include "AjoutReservationDecorateur.hpp"
+#include "fstream"
+#include "filesystem"
+
+using namespace std;
 
 void ReservationComposite::ajouterReservation(shared_ptr<Reservation> r) {
 	reservations.push_back(r);
@@ -136,6 +140,60 @@ void ReservationComposite::afficherVoyage(int indentLevel, string& journeePrec) 
 			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << s->calculerPrixTotal() << ".\n";
 		}
 	}
+}
+
+void ReservationComposite::creerJournalisation(const string& nomJournal, string& journeePrec,  int indentLevel) const {
+	string fileName = "log" + nomJournal + ".txt";
+	ofstream outFile;
+
+	if (indentLevel != 0) {
+		outFile.open(fileName, ios::app);
+	}
+	else {
+		outFile.open(fileName);
+	}
+	auto writeIndented = [&](const string& message, int level) {
+		string indent(level * 2, ' ');
+		outFile << indent << message << endl;
+		};
+	if (obtenirDate() == obtenirNom()) {
+
+		if (journeePrec != obtenirNom()) {
+			writeIndented("Journee " + obtenirNom() + ":", indentLevel);
+			journeePrec = obtenirNom();
+		}
+		
+	}
+	else {
+		string nom = obtenirNom();
+		if (nom.find("Segment") != string::npos) {
+			writeIndented(obtenirNom() + ":", indentLevel);
+			indentLevel = indentLevel - 1;
+		}
+	}
+	for (const auto& s : reservations) {
+		if (auto composite = dynamic_cast<const ReservationComposite*>(s.get())) {
+			composite->creerJournalisation(nomJournal, journeePrec, indentLevel + 1);
+		}
+		else if (auto commentaire = dynamic_cast<CommentaireReservationDecorateur*>(s.get())) {
+			writeIndented("Reservation " + commentaire->obtenirNom() +
+				", prix total ($ CA): " + std::to_string(commentaire->calculerPrixTotal()) + ".",
+				indentLevel);
+			writeIndented("Commentaire: " + commentaire->obtenirCommentaire(), indentLevel + 1);
+		}
+		else if (auto ajout = dynamic_cast<AjoutReservationDecorateur*>(s.get())) {
+			writeIndented("Reservation " + ajout->obtenirNom() +
+				", prix total ($ CA): " + std::to_string(ajout->calculerPrixTotal()) + ".",
+				indentLevel);
+			writeIndented("Reservation " + ajout->obtenirNomSousReservation(), indentLevel + 1);
+		}
+		else {
+			writeIndented("Reservation " + s->obtenirNom() +
+				", prix total ($ CA): " + std::to_string(s->calculerPrixTotal()) + ".",
+				indentLevel);
+		}
+	}
+	outFile.close();
 }
 
 vector<shared_ptr<Reservation>>& ReservationComposite::obtenirReservations() {

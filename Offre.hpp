@@ -17,6 +17,7 @@ public:
 	virtual const string& obtenirNom() const;
 	const Devise& obtenirDevise() const;
 	const double& obtenirPrix() const;
+	void changerPrix(double newPrix);
 
 protected:
 	string categorie;

@@ -7,6 +7,7 @@
 #include "ReservationDecorateur.hpp"
 #include "AjoutReservationDecorateur.hpp"
 #include "CommentaireReservationDecorateur.hpp"
+#include "OffreDecorateur.hpp"
 #include "BDP.hpp"
 
 using namespace std;
@@ -155,8 +156,24 @@ int main() {
 	voyageDora->remplacerReservation("Hotel Stella", "2024-10-31", decorateurCommentaire);
 
 	decorateurAjoutSecond->annulerReservation();
-	
+
+	string commentaire = "Rabais de 5 dollars canadiens au Louvre pour les etudiants de Polytechnique Montreal!\n";
+	string nomOffre = "Visite guidee pour voir les chefs-d'œuvre du musee du Louvre";
+	shared_ptr<OffreDecorateur> offreDec = 
+		make_shared<OffreDecorateur>(bDOR.obtenirOffre(nomOffre), commentaire, "Excursion", nomOffre, bDOR.obtenirOffre(nomOffre)->obtenirPrix());
+	//bDOR.remplacerOffre(nomOffre, offreDec);
+
 	string empty = "";
+
+	//journalisation 
+	
+	//voyageDora
+	voyageDora->creerJournalisation("Dora", empty);
+	//voyageDiego
+	voyageDiego->creerJournalisation("Diego", empty);
+	//voyageAlicia
+	voyageAlicia->creerJournalisation("Alicia", empty);
+	
 	voyageDora->afficherVoyage(0, empty);
 
 	cout << endl;
@@ -166,6 +183,8 @@ int main() {
 	cout << endl;
 
 	voyageAlicia->afficherVoyage(0, empty);
+	
+
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
 	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();

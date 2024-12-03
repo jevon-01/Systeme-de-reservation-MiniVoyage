@@ -1,0 +1,29 @@
+  Segment France 1ere partie:
+  Journee 2024-10-26:
+  Reservation Air Canada AC 870 2024-10-26, prix total ($ CA): 1127.000000.
+  Journee 2024-10-27:
+  Reservation Hotel Stella, prix total ($ CA): 403.000000.
+    Reservation Restaurant de l'hotel Stella pour le 27 octobre 2024 a 19h.
+  Journee 2024-10-28:
+  Reservation Paris Diner-croisiere sur la Seine by Bateaux Mouches, prix total ($ CA): 184.000000.
+  Reservation Hotel Stella, prix total ($ CA): 403.000000.
+  Segment Portugal:
+  Journee 2024-10-29:
+  Reservation TAP Air Portugal TP 441 2024-10-29, prix total ($ CA): 378.000000.
+  Reservation Hotel Roma, prix total ($ CA): 300.000000.
+  Journee 2024-10-30:
+  Reservation Visite du Musee Calouste-Gulbenkian, prix total ($ CA): 15.000000.
+  Reservation Hotel Roma, prix total ($ CA): 300.000000.
+  Journee 2024-10-31:
+  Reservation easyJet 4592 2024-10-31, prix total ($ CA): 507.000000.
+  Segment France 2e partie:
+  Reservation Hotel Stella, prix total ($ CA): 403.000000.
+    Commentaire: Excellent service!.
+  Journee 2024-11-01:
+  Reservation Visite guidee pour voir les chefs-d'œuvre du musee du Louvre, prix total ($ CA): 107.000000.
+  Reservation Hotel Stella, prix total ($ CA): 403.000000.
+  Journee 2024-11-02:
+  Reservation Visite guidee a Versailles et acces prioritaire avec transfert depuis l'hotel au depart de Paris, prix total ($ CA): 86.000000.
+  Reservation Hotel Stella, prix total ($ CA): 403.000000.
+  Journee 2024-11-03:
+  Reservation Air Transat 111 2024-11-03, prix total ($ CA): 719.000000.
