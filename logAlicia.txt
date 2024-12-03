@@ -1,29 +1,29 @@
-  Segment France 1ere partie:
+Voyage d'Alicia:
   Journee 2024-10-26:
-  Reservation Air Canada AC 870 2024-10-26, prix total ($ CA): 1149.540000.
+    Reservation Air Canada AC 870 2024-10-26, prix total ($ CA): 1150.
   Journee 2024-10-27:
-  Reservation Hotel Stella, prix total ($ CA): 415.090000.
+    Reservation Hotel Stella, prix total ($ CA): 415.
     Reservation Restaurant de l'hotel Stella pour le 27 octobre 2024 a 19h.
   Journee 2024-10-28:
-  Reservation Paris Diner-croisiere sur la Seine by Bateaux Mouches, prix total ($ CA): 187.680000.
-  Reservation Hotel Stella, prix total ($ CA): 415.090000.
-  Segment Espagne:
+    Reservation Paris Diner-croisiere sur la Seine by Bateaux Mouches, prix total ($ CA): 188.
+    Reservation Hotel Stella, prix total ($ CA): 415.
   Journee 2024-10-29:
-  Reservation Air Europa 1026, prix total ($ CA): 102.000000.
-  Reservation Far Home Atocha, prix total ($ CA): 339.900000.
+    Reservation Air Europa 1026, prix total ($ CA): 102.
+    Reservation Far Home Atocha, prix total ($ CA): 340.
   Journee 2024-10-30:
-  Reservation Excursion d'une journee a Tolede (de Madrid), prix total ($ CA): 38.760000.
-  Reservation Far Home Atocha, prix total ($ CA): 339.900000.
+    Reservation Excursion d'une journee a Tolede (de Madrid), prix total ($ CA): 39.
+    Reservation Far Home Atocha, prix total ($ CA): 340.
   Journee 2024-10-31:
-  Reservation Air Europa 1025, prix total ($ CA): 102.000000.
-  Segment France 2e partie:
-  Reservation Hotel Stella, prix total ($ CA): 415.090000.
-    Commentaire: Excellent service!.
+    Reservation Air Europa 1025, prix total ($ CA): 102.
+    Reservation Hotel Stella, prix total ($ CA): 415.
+      Commentaire: Excellent service!.
   Journee 2024-11-01:
-  Reservation Visite guidee pour voir les chefs-d'œuvre du musee du Louvre, prix total ($ CA): 109.140000.
-  Reservation Hotel Stella, prix total ($ CA): 415.090000.
+    Reservation Visite guidee pour voir les chefs-d'œuvre du musee du Louvre, prix total ($ CA): 109.
+      Commentaire: Rabais de 5 dollars canadiens au Louvre pour les etudiants de Polytechnique Montreal!
+
+    Reservation Hotel Stella, prix total ($ CA): 415.
   Journee 2024-11-02:
-  Reservation Visite guidee a Versailles et acces prioritaire avec transfert depuis l'hotel au depart de Paris, prix total ($ CA): 87.720000.
-  Reservation Hotel Stella, prix total ($ CA): 415.090000.
+    Reservation Visite guidee a Versailles et acces prioritaire avec transfert depuis l'hotel au depart de Paris, prix total ($ CA): 88.
+    Reservation Hotel Stella, prix total ($ CA): 415.
   Journee 2024-11-03:
-  Reservation Air Transat 111 2024-11-03, prix total ($ CA): 733.380000.
+    Reservation Air Transat 111 2024-11-03, prix total ($ CA): 733.

@@ -51,6 +51,9 @@
     <ClInclude Include="ReservationComposite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OffreDecorateur.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BDOR.cpp">
@@ -110,6 +113,9 @@
     <ClCompile Include="AjoutReservationDecorateur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OffreDecorateur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MV_offres_de_reservation_Excursions.csv">
@@ -124,6 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="logDora.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="logDiego.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="logAlicia.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

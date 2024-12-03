@@ -153,32 +153,34 @@ void ReservationComposite::afficherVoyage(int indentLevel, string& journeePrec) 
 	}
 }
 
-void ReservationComposite::creerJournalisation(const string& nomJournal, string& journeePrec,  int indentLevel) const {
+void ReservationComposite::creerJournalisation(const string& nomJournal, string& journeePrec, int indentLevel) const {
 	string fileName = "log" + nomJournal + ".txt";
 	ofstream outFile;
 
+	string indent(indentLevel * 2, ' ');
+	auto writeIndented = [&](const string& message, int level) {
+		string indent(level * 2, ' ');
+		outFile << indent << message << endl;
+		};
 	if (indentLevel != 0) {
 		outFile.open(fileName, ios::app);
 	}
 	else {
 		outFile.open(fileName);
+		writeIndented(obtenirNom() + ":", indentLevel);
 	}
-	auto writeIndented = [&](const string& message, int level) {
-		string indent(level * 2, ' ');
-		outFile << indent << message << endl;
-		};
+
 	if (obtenirDate() == obtenirNom()) {
 
 		if (journeePrec != obtenirNom()) {
 			writeIndented("Journee " + obtenirNom() + ":", indentLevel);
 			journeePrec = obtenirNom();
 		}
-		
+
 	}
 	else {
 		string nom = obtenirNom();
 		if (nom.find("Segment") != string::npos) {
-			writeIndented(obtenirNom() + ":", indentLevel);
 			indentLevel = indentLevel - 1;
 		}
 	}
@@ -187,21 +189,29 @@ void ReservationComposite::creerJournalisation(const string& nomJournal, string&
 			composite->creerJournalisation(nomJournal, journeePrec, indentLevel + 1);
 		}
 		else if (auto commentaire = dynamic_cast<CommentaireReservationDecorateur*>(s.get())) {
-			writeIndented("Reservation " + commentaire->obtenirNom() +
-				", prix total ($ CA): " + std::to_string(commentaire->calculerPrixTotal()) + ".",
+			writeIndented(indent + "Reservation " + commentaire->obtenirNom() +
+				", prix total ($ CA): " + to_string((int)round(commentaire->calculerPrixTotal())) + ".",
 				indentLevel);
-			writeIndented("Commentaire: " + commentaire->obtenirCommentaire(), indentLevel + 1);
+			writeIndented(indent + "Commentaire: " + commentaire->obtenirCommentaire(), indentLevel + 1);
 		}
 		else if (auto ajout = dynamic_cast<AjoutReservationDecorateur*>(s.get())) {
-			writeIndented("Reservation " + ajout->obtenirNom() +
-				", prix total ($ CA): " + std::to_string(ajout->calculerPrixTotal()) + ".",
+			writeIndented(indent + "Reservation " + ajout->obtenirNom() +
+				", prix total ($ CA): " + to_string((int) round(ajout->calculerPrixTotal())) + ".",
 				indentLevel);
 			writeIndented("Reservation " + ajout->obtenirNomSousReservation(), indentLevel + 1);
 		}
-		else {
-			writeIndented("Reservation " + s->obtenirNom() +
-				", prix total ($ CA): " + std::to_string(s->calculerPrixTotal()) + ".",
-				indentLevel);
+		else if (auto elem = dynamic_cast<ReservationElementaire*>(s.get())) {
+			writeIndented(indent + "Reservation " + s->obtenirNom() +
+				", prix total ($ CA): " + to_string((int)round(s->calculerPrixTotal())) + ".",
+				indentLevel); 
+			const auto& offreProxy = elem->obtenirOffre();
+
+			auto* internalOffre = const_cast<OffreProxy&>(offreProxy).obtenirOffre().get();
+
+			if (auto offreDec = dynamic_cast<OffreDecorateur*>(internalOffre)) {
+				writeIndented(indent + "  Commentaire: " + offreDec->obtenirCommentaire(), indentLevel);
+
+			}
 		}
 	}
 	outFile.close();
