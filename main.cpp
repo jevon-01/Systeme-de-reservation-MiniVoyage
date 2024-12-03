@@ -77,6 +77,7 @@ void creationVoyageDiego(const shared_ptr<ReservationComposite> voyageDiego, con
 	voyageDiego->supprimerReservation(segment);
 	cout << "  " << segment->obtenirNom() << " efface!\n";
 	bDP.ajouterReservation(voyageDiego);
+	
 
 	for (const auto& seg : segmentsEtJours) {
 
@@ -103,6 +104,7 @@ void creationVoyageDiego(const shared_ptr<ReservationComposite> voyageDiego, con
 		}
 
 	}
+	swap(voyageDiego->obtenirReservations()[1], voyageDiego->obtenirReservations()[2]);
 	cout << "\n";
 }
 
@@ -120,7 +122,7 @@ int main() {
 	shared_ptr<ReservationComposite> voyageDiego = make_shared<ReservationComposite>("Voyage de Diego", * voyageDora);
 
 	creationVoyageDiego(voyageDiego, voyageDora, bDOR, bDP);
-
+	
 	//Création voyage Alicia
 	shared_ptr<ReservationComposite> voyageAlicia = make_shared<ReservationComposite>("Voyage d'Alicia", * voyageDiego);
 	cout << voyageAlicia->obtenirNom() << " copie a partir du " << voyageDiego->obtenirNom() << "!\n\n";
@@ -147,7 +149,6 @@ int main() {
 	shared_ptr<AjoutReservationDecorateur> decorateurAjoutSecond = make_shared<AjoutReservationDecorateur>(mainSecond, sousSecond);
 	voyageDora->remplacerReservation("Hotel Stella", "2024-10-31", decorateurAjoutSecond);
 	
-
 	// Créer et associer third pair
 	shared_ptr<Reservation> mainThird = voyageDora->obtenirReservationSpecifique("Hotel Stella", "2024-10-31");
 	shared_ptr<CommentaireReservationDecorateur> decorateurCommentaire = make_shared<CommentaireReservationDecorateur>(mainSecond, "Excellent service!.");
@@ -155,7 +156,16 @@ int main() {
 
 	decorateurAjoutSecond->annulerReservation();
 	
-	voyageDora->afficherVoyage(0);
+	string empty = "";
+	voyageDora->afficherVoyage(0, empty);
+
+	cout << endl;
+
+	voyageDiego->afficherVoyage(0, empty);
+
+	cout << endl;
+
+	voyageAlicia->afficherVoyage(0, empty);
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
 	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();

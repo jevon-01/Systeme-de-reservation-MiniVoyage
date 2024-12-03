@@ -11,8 +11,9 @@ public:
 	void ajouterReservation(shared_ptr<Reservation> r) override;
 	void supprimerReservation(shared_ptr<Reservation> r) override;
 	void afficherTout() const;
-	void afficherVoyage(int i) const;
+	void afficherVoyage(int i, string& prec) const;
 	const double calculerPrixTotal() override;
+	vector<shared_ptr<Reservation>>& obtenirReservations();
 	shared_ptr<Reservation> obtenirReservationSpecifique(const string& r, const string& date);
 	shared_ptr<Reservation> remplacerReservation(const string& r, const string& date, shared_ptr<Reservation> res);
 private:
