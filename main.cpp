@@ -111,6 +111,12 @@ void creationVoyageDiego(const shared_ptr<ReservationComposite> voyageDiego, con
 
 int main() {
 
+	//==========================================================================
+	// 
+	//									TP4
+	// 
+	//==========================================================================
+
 	BDOR bDOR;
 	BDP bDP;
 
@@ -135,9 +141,19 @@ int main() {
 		cout << "Total des frais pour le " << voyage->obtenirNom()<<" ($ CA): " << (int)voyage->calculerPrixTotal() << "\n";
 	}
 
+	//==========================================================================
+	// 
+	//									TP5
+	// 
+	//==========================================================================
+
 	cout << "\n--- Debut de la sortie du TP5\n" << endl;
 
 	shared_ptr<Offre> ptrOffreReservation = bDOR.obtenirOffre("Hotel Stella");
+
+	//==========================================================================
+	// Ajout de commentaire et sous-reservations
+	//==========================================================================
 
 	// Créer et associer first pair
 	shared_ptr<Reservation> main = voyageDora->obtenirReservationSpecifique("Hotel Stella", "2024-10-27");
@@ -158,26 +174,44 @@ int main() {
 
 	decorateurAjoutSecond->annulerReservation();
 
+	//==========================================================================
+	// Création commentaire pour offre
+	//==========================================================================
+
 	string commentaire = "Rabais de 5 dollars canadiens au Louvre pour les etudiants de Polytechnique Montreal!\n";
 	string nomOffre = "Visite guidee pour voir les chefs-d'œuvre du musee du Louvre";
+
 	shared_ptr<OffreDecorateur> offreDec = 
 		make_shared<OffreDecorateur>(bDOR.obtenirOffre(nomOffre), commentaire, "Excursion", nomOffre, bDOR.obtenirOffre(nomOffre)->obtenirPrix());
+
 	//offreDec->appliquerRabais(5); // Il n'est pas appliqué dans le output
 	bDOR.remplacerOffre(nomOffre, offreDec);
 	voyageDora->changerOffre(offreDec);
+
+	//==========================================================================
+	// Inflation
+	//==========================================================================
+
 	bDOR.inflationAnnuelle();
 	voyageDora->inflationAnnuelle();
 
+	
+
+	//==========================================================================
+	// Journalisation 
+	//==========================================================================
 	string empty = "";
 
-	//journalisation 
-	
 	//voyageDora
 	voyageDora->creerJournalisation("Dora", empty);
 	//voyageDiego
 	voyageDiego->creerJournalisation("Diego", empty);
 	//voyageAlicia
 	voyageAlicia->creerJournalisation("Alicia", empty);
+
+	//==========================================================================
+	// Affichage des voyages
+	//==========================================================================
 	
 	voyageDora->afficherVoyage(0, empty);
 
@@ -188,6 +222,10 @@ int main() {
 	cout << endl;
 
 	voyageAlicia->afficherVoyage(0, empty);
+
+	//==========================================================================
+	// Calcul du total des offres de réservation et l'affichage du nombre
+	//==========================================================================
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
 	cout << endl << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();
