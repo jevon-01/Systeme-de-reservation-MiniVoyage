@@ -15,6 +15,7 @@ public:
 	const double calculerPrixTotal() override;
 	shared_ptr<Reservation> obtenirReservationSpecifique(const string& r, const string& date);
 	shared_ptr<Reservation> remplacerReservation(const string& r, const string& date, shared_ptr<Reservation> res);
+	void creerJournalisation(const string& nomJournal, int indentlevel = 0) const;
 private:
 	vector<shared_ptr<Reservation>> reservations;
 

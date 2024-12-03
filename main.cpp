@@ -106,6 +106,8 @@ void creationVoyageDiego(const shared_ptr<ReservationComposite> voyageDiego, con
 	cout << "\n";
 }
 
+
+
 int main() {
 
 	BDOR bDOR;
@@ -156,6 +158,11 @@ int main() {
 	decorateurAjoutSecond->annulerReservation();
 	
 	voyageDora->afficherVoyage(0);
+	//journalisation du voyage de Dora
+	voyageDora->creerJournalisation("Dora");
+
+	//voyageDiego
+	//voyageAlicia
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
 	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();

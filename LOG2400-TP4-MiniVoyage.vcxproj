@@ -166,6 +166,9 @@
     <None Include="MV_offres_de_reservation_Hebergement.csv" />
     <None Include="MV_offres_de_reservation_Vols.csv" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="logDora.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
