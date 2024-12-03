@@ -127,24 +127,28 @@ void ReservationComposite::afficherVoyage(int indentLevel, string& journeePrec) 
 		}
 		else if (auto commentaire = dynamic_cast<CommentaireReservationDecorateur*>(s.get())) {
 
-			cout << indent << "  " << "Reservation " << commentaire->obtenirNom() << ", prix total ($ CA): " << commentaire->calculerPrixTotal() << ".\n";
+			cout << indent << "  " << "Reservation " << commentaire->obtenirNom() << ", prix total ($ CA): " <<  round(commentaire->calculerPrixTotal()) << ".\n";
 
 			cout << indent << indent << "  " << "Commentaire: " << commentaire->obtenirCommentaire() << endl;
 		}
 		else if (auto ajout = dynamic_cast<AjoutReservationDecorateur*>(s.get())) {
 
-			cout << indent << "  " << "Reservation " << ajout->obtenirNom() << ", prix total ($ CA): " << ajout->calculerPrixTotal() << ".\n";
+			cout << indent << "  " << "Reservation " << ajout->obtenirNom() << ", prix total ($ CA): " <<  round(ajout->calculerPrixTotal()) << ".\n";
 
 			cout << indent << indent << "  " << "Reservation " << ajout->obtenirNomSousReservation() << endl;
 		}
 		else if (auto elem = dynamic_cast<ReservationElementaire*>(s.get())) {
-			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << s->calculerPrixTotal() << ".\n";
+			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << round(s->calculerPrixTotal()) << ".\n";
 		
-			auto offreProxy = elem->obtenirOffre();
-			if (auto offreDec = dynamic_cast<OffreDecorateur*>(offreProxy.obtenirOffre().get())) {
-				cout << indent << indent << "  " << offreDec->obtenirCommentaire() << endl;
-				
+			const auto& offreProxy = elem->obtenirOffre();
+	
+			auto* internalOffre = const_cast<OffreProxy&>(offreProxy).obtenirOffre().get();
+
+			if (auto offreDec = dynamic_cast<OffreDecorateur*>(internalOffre)) {
+				cout << indent << indent << "  Commentaire: " << offreDec->obtenirCommentaire() << endl;
+			
 			}
+
 		}
 	}
 }
@@ -205,4 +209,41 @@ void ReservationComposite::creerJournalisation(const string& nomJournal, string&
 
 vector<shared_ptr<Reservation>>& ReservationComposite::obtenirReservations() {
 	return reservations;
+}
+
+shared_ptr<Reservation> ReservationComposite::changerOffre(shared_ptr<Offre> ptr) {
+	for (auto& reserv : reservations) {
+
+		if (auto composite = dynamic_cast<ReservationComposite*>(reserv.get())) {
+			composite->changerOffre(ptr);  
+		}
+	
+		else if (auto elem = dynamic_cast<ReservationElementaire*>(reserv.get())) {
+			if (elem->obtenirOffre().obtenirNom() == ptr->obtenirNom()) {
+				
+				elem->obtenirOffre().changerOffre(ptr);
+			}
+		}
+	}
+	return nullptr;  
+}
+
+shared_ptr<Reservation> ReservationComposite::inflationAnnuelle() {
+	for (auto& reserv : reservations) {
+
+		if (auto composite = dynamic_cast<ReservationComposite*>(reserv.get())) {
+			composite->inflationAnnuelle();
+		}
+
+		else if (auto elem = dynamic_cast<ReservationElementaire*>(reserv.get())) {
+
+			if (elem->obtenirOffre().obtenirCategorie() == "Hebergement") {
+				elem->obtenirOffre().changerPrix(elem->obtenirOffre().obtenirPrix() * 1.03);
+			}
+			else {
+				elem->obtenirOffre().changerPrix(elem->obtenirOffre().obtenirPrix() * 1.02);
+			}
+		}
+	}
+	return nullptr;
 }

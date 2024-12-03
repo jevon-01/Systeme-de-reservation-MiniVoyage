@@ -2,6 +2,7 @@
 
 void OffreDecorateur::appliquerRabais(double rabais) {
 	offreBase->changerPrix(offreBase->obtenirPrix() - rabais);
+	this->changerPrix(offreBase->obtenirPrix());
 }
 
 const string& OffreDecorateur::obtenirCommentaire() const {

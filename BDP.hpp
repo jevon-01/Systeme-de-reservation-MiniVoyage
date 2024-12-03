@@ -1,5 +1,6 @@
 #pragma once
 #include "Reservation.hpp"
+#include "Offre.hpp"
 
 class BDP {
 public:

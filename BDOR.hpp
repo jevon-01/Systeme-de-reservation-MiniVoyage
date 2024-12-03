@@ -16,6 +16,7 @@ public:
 	const shared_ptr<Offre>& obtenirOffre(const string& nomOffre) const;
 	const vector<shared_ptr<Offre>>& obtenirTousOffres() const;
 	shared_ptr<Offre> remplacerOffre(const string& offreNom, shared_ptr<Offre> nouvelOffre);
+	void inflationAnnuelle();
 private:
 	vector<Categorie> categories;
 	vector<shared_ptr<Offre>> offres;

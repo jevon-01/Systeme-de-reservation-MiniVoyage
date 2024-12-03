@@ -68,3 +68,19 @@ shared_ptr<Offre> BDOR::remplacerOffre(const string& offreNom, shared_ptr<Offre>
 	
 	return nullptr;
 }
+
+void BDOR::inflationAnnuelle() {
+
+	for (const auto& c : categories) {
+		for (const auto& o : c.obtenirOffres()) {
+			if (o->obtenirCategorie() == "Hebergement") {
+				o->changerPrix(o->obtenirPrix() * 1.03);
+			}
+			else {
+				o->changerPrix(o->obtenirPrix() * 1.02);
+			}
+			
+		}
+	}
+
+}

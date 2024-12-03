@@ -12,6 +12,7 @@ public:
 	const string& obtenirCategorie() const override;
 	const string& obtenirNom() const override;
 	shared_ptr<Offre>& obtenirOffre();
+	void changerOffre(shared_ptr<Offre>& ptr);
 
 private:
 	shared_ptr<Offre> ptrOffre;

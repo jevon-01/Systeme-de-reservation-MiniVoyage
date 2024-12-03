@@ -9,8 +9,10 @@ public:
 	const string& obtenirContactVendeur() const;
 	const string& obtenirDateAchat() const;
 	const string& obtenirNomVendeur() const;
-	const OffreProxy& obtenirOffre() const;
+	OffreProxy& obtenirOffre();
 	const double calculerPrixTotal() override;
+
+	void changerOffre(shared_ptr<Offre> ptr);
 
 private:
 	string contactVendeur;

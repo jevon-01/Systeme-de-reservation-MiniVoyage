@@ -14,3 +14,7 @@ const string& OffreProxy::obtenirNom() const {
 shared_ptr<Offre>& OffreProxy::obtenirOffre() {
 	return ptrOffre;
 }
+
+void OffreProxy::changerOffre(shared_ptr<Offre>& ptr) {
+	ptrOffre = ptr;
+}

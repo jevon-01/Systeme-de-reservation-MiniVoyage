@@ -162,9 +162,12 @@ int main() {
 	string nomOffre = "Visite guidee pour voir les chefs-d'œuvre du musee du Louvre";
 	shared_ptr<OffreDecorateur> offreDec = 
 		make_shared<OffreDecorateur>(bDOR.obtenirOffre(nomOffre), commentaire, "Excursion", nomOffre, bDOR.obtenirOffre(nomOffre)->obtenirPrix());
+	//offreDec->appliquerRabais(5); // Il n'est pas appliqué dans le output
 	bDOR.remplacerOffre(nomOffre, offreDec);
-	
-	//bDOR.obtenirOffre(nomOffre)->da();
+	voyageDora->changerOffre(offreDec);
+	bDOR.inflationAnnuelle();
+	voyageDora->inflationAnnuelle();
+
 	string empty = "";
 
 	//journalisation 
@@ -187,7 +190,7 @@ int main() {
 	voyageAlicia->afficherVoyage(0, empty);
 
 	vector<shared_ptr<Offre>> offresTotal = bDOR.obtenirTousOffres();
-	cout << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();
+	cout << endl << "Total du nombre d'offres de reservations dans la BDOR: " << offresTotal.size();
 
 	return 0;
 }

@@ -13,10 +13,14 @@ const string& ReservationElementaire::obtenirNomVendeur() const {
 	return nomVendeur;
 }
 
-const OffreProxy& ReservationElementaire::obtenirOffre() const {
+OffreProxy& ReservationElementaire::obtenirOffre() {
 	return offre;
 }
 
 const double ReservationElementaire::calculerPrixTotal() {
 	return offre.calculerPrixTotal();
+}
+
+void ReservationElementaire::changerOffre(shared_ptr<Offre> ptr) {
+	offre.changerOffre(ptr);
 }
