@@ -161,7 +161,7 @@ int main() {
 	string nomOffre = "Visite guidee pour voir les chefs-d'œuvre du musee du Louvre";
 	shared_ptr<OffreDecorateur> offreDec = 
 		make_shared<OffreDecorateur>(bDOR.obtenirOffre(nomOffre), commentaire, "Excursion", nomOffre, bDOR.obtenirOffre(nomOffre)->obtenirPrix());
-	//bDOR.remplacerOffre(nomOffre, offreDec);
+	bDOR.remplacerOffre(nomOffre, offreDec);
 
 	string empty = "";
 

@@ -138,6 +138,8 @@ void ReservationComposite::afficherVoyage(int indentLevel, string& journeePrec) 
 		}
 		else {
 			cout << indent << "  " << "Reservation " << s->obtenirNom() << ", prix total ($ CA): " << s->calculerPrixTotal() << ".\n";
+
+			//if()
 		}
 	}
 }

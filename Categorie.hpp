@@ -18,6 +18,7 @@ public:
 	void ajouterOffre(shared_ptr<Offre> offre);
 	const string& obtenirNomCategorie() const;
 	const vector<shared_ptr<Offre>>& obtenirOffres() const;
+	vector<shared_ptr<Offre>>& obtenirOffresNonConst();
 	shared_ptr<Offre> obtenirOffreSpecifique(const string& nom) const;
 
 private:

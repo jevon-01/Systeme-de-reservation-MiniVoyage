@@ -52,3 +52,20 @@ const shared_ptr<Offre>& BDOR::obtenirOffre(const string& nomOffre) const {
 const vector<shared_ptr<Offre>>& BDOR::obtenirTousOffres() const {
 	return offres;
 }
+
+shared_ptr<Offre> BDOR::remplacerOffre(const string& offreNom, shared_ptr<Offre> nouvelOffre) {
+	
+	for (auto& categorie : categories) {
+	
+		for (auto& offre : categorie.obtenirOffresNonConst()) {
+			
+			if (offre->obtenirNom() == offreNom) {
+				
+				offre = nouvelOffre; 
+				return offre; 
+			}
+		}
+	}
+	
+	return nullptr;
+}

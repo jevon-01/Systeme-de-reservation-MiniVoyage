@@ -110,6 +110,11 @@ const vector<shared_ptr<Offre>>& Categorie::obtenirOffres() const {
 	return offres;
 }
 
+
+vector<shared_ptr<Offre>>& Categorie::obtenirOffresNonConst() {
+	return offres;
+}
+
 const string& Categorie::obtenirNomCategorie() const {
 	return nom;
 }
